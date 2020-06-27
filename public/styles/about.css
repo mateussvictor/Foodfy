@@ -1,0 +1,86 @@
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  font-size: 62.5%; 
+}
+
+body {
+  font-size: 1.6rem;
+  color: #111111;
+  margin: 0vh auto; 
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  max-width: 94rem;
+  margin-bottom: 2.7%;
+  text-decoration: none;
+  margin: 5vh auto; 
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav .logo {
+  margin-right: 9%;
+}
+
+nav .nav-item {
+  margin-right: 2.1%;
+}
+
+
+/* About Foodfy */
+
+.about-foodfy{
+  max-width: 94rem;
+  margin: 0vh auto;
+}
+
+.about-foodfy h1{
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: #111111;
+  margin-top: 4.6%;
+}
+
+.about-foodfy h3{
+  font-size: 2.0rem;
+  line-height: 2.4rem;
+  color: #111111;
+  margin-top: 2.7%;
+}
+
+.about-foodfy p{
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: #444444;
+  margin-top: 1.8%;
+}
+
+
+/* Rights reserved div */
+
+.rights-reserved {
+  background-color: #EEEEEE;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: #999999;
+  text-align: center;
+  padding: 2%;
+  margin-top: 5%;
+}

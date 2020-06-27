@@ -1,0 +1,167 @@
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  font-size: 62.5%; 
+}
+
+body {
+  font-size: 1.6rem;
+  color: #111111;
+  margin: 0vh auto; 
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* Header-nav */
+
+header {
+  max-width: 94rem;
+  margin-bottom: 2.7%;
+  text-decoration: none;
+  margin: 5vh auto;
+  min-height: 5vh;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 8.7%;
+}
+
+nav .nav-item {
+  margin-right: 2.1%;
+}
+
+
+/* Cards */
+
+#recipes {
+  max-width: 94rem;
+  margin: 5vh auto;
+}
+
+#cards {
+  max-width: 94rem;
+  margin: 5vh auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2%;
+  margin-top: 6%;
+}
+
+.recipe-card {
+  cursor: pointer;
+}
+
+.recipe-card img:hover {
+  border: 0.6rem solid #ffddd7;
+}
+
+.recipe-card img {
+  border-radius: 1.5rem;
+  width: 30rem;
+  height: 14rem;
+}
+
+.recipe-card h3 {
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  font-weight: 400;
+  margin-bottom: 2%;
+  margin-top: 4%;
+}
+
+.recipe-card p {
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 7%;
+  color: #777777;
+}
+
+
+/* Modal styles */
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  background-color: white;
+  width: 66rem;
+  height: 40rem;
+  margin: 21vh auto;
+  position: relative;
+  border-radius: 1.6rem;
+  text-align: center;
+}
+
+.modal-img {
+  width: 60rem;
+  height: 20rem;
+  border-radius: 16px;
+  margin: 4% 2.1% 1.8% 2.1%;
+}
+
+.modal-title {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: #111111;
+}
+
+.recipe-author {
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  color: #777777;
+  margin-top: 1%;  
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close-modal {
+  margin-top: 9%;
+}
+
+.close-modal span {
+  cursor: pointer;
+  color: #999999;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+}
+
+
+/* Rights reserved div */
+
+.rights-reserved {
+  background-color: #EEEEEE;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: #999999;
+  text-align: center;
+  padding: 1.8%;
+  margin-top: 6.8%;
+}
