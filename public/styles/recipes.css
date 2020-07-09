@@ -24,31 +24,44 @@ a {
 }
 
 
-/* Header-nav */
-
 header {
   max-width: 94rem;
-  margin-bottom: 2.7%;
   text-decoration: none;
   margin: 5vh auto;
-  min-height: 5vh;
+  min-height: 5vh; 
 }
 
-nav {
+header nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
 }
 
-.logo {
-  margin-right: 8.7%;
+nav .logo {
+  margin-right: auto;
 }
 
-nav .nav-item {
-  margin-right: 2.1%;
+.nav-item {
+  margin-left: 3rem;
+  padding: 0.5rem;
 }
 
+.nav-item:after {
+  transition: all ease-in-out .2s;
+  background: none repeat scroll 0 0 #df4a33;
+  content: "";
+  display: block;
+  height: 0.2rem;
+  width: 0;
+}
 
-/* Cards */
+.nav-item:hover:after {
+  width: 100%;
+  margin-top: 0.4rem;
+  margin-bottom: -0.4rem;
+}
+
 
 #recipes {
   max-width: 94rem;
@@ -68,15 +81,17 @@ nav .nav-item {
   cursor: pointer;
 }
 
-.recipe-card img:hover {
-  border: 0.6rem solid #ffddd7;
-}
-
 .recipe-card img {
   border-radius: 1.5rem;
   width: 30rem;
   height: 14rem;
+  box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
 }
+
+.recipe-card img:hover {
+  box-shadow: 4px 4px 8px 0px #df4a33, 0 6px 20px 0 #df4a33;
+}
+
 
 .recipe-card h3 {
   font-size: 1.8rem;
@@ -94,8 +109,6 @@ nav .nav-item {
   color: #777777;
 }
 
-
-/* Modal styles */
 
 .modal-overlay {
   background-color: rgba(0, 0, 0, 0.7);
@@ -153,8 +166,6 @@ nav .nav-item {
   line-height: 1.8rem;
 }
 
-
-/* Rights reserved div */
 
 .rights-reserved {
   background-color: #EEEEEE;

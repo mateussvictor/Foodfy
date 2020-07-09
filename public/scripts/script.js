@@ -1,21 +1,22 @@
-const modalOverLay = document.querySelector('.modal-overlay');
 const cards = document.querySelectorAll('.recipe-card');
+const recipeContents = document.querySelectorAll('.recipe-contents');
 
-for (let card of cards) {
-  
-  card.addEventListener('click', () => {
-    const showImg = card.getAttribute('id');
-    const title = card.querySelector('.recipe-title').innerHTML;
-    const author = card.querySelector('.author').innerHTML;
-
-    modalOverLay.classList.add('active');
-    modalOverLay.querySelector('img').src = `${showImg}`;
-    modalOverLay.querySelector('.modal-title').innerHTML = title;
-    modalOverLay.querySelector('.recipe-author').innerHTML = author;
+for (let i = 0; i < cards.length; i++) {
+  cards[i].addEventListener('click', () => {
+    window.location.href = `/recipes/${i}`;
   });
 }
 
-document.querySelector('.close-modal').addEventListener('click', () => {
-  modalOverLay.classList.remove('active');
-  modalOverLay.querySelector('img').src = '';
-});
+for (info of recipeContents) {
+  const hide = info.querySelector('.card-hide');
+  const recipeList = info.querySelector('.recipe-steps');
+  
+  hide.addEventListener('click', () => {
+    if (hide.innerHTML == 'hide') {
+      hide.innerHTML = 'show';
+    } else {
+      hide.innerHTML = 'hide';
+    }
+    recipeList.classList.toggle('hide');
+  });
+}

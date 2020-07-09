@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/about.css" />
-    <title>Foodfy</title>
-  </head>
+{% extends 'layout.njk' %}
 
-  <body>
-    <header>
-      <nav>
-        <a href="./home.html" class="logo"
-          ><img src="./assets/logo.png" alt="logo"
-        /></a>
-        <a href="./about.html" class="nav-item"><strong>About</strong></a>
-        <a href="./recipes.html" class="nav-item">Recipes</a>
-      </nav>
-    </header>
+{% block head %}
+  <title>About</title>
+  <link rel="stylesheet" href="/styles/about.css" />
+{% endblock %}
+
+{% block content %}
 
     <div class="about-foodfy">
       <h1>About Foodfy</h1>
-
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel voluptas
         inventore libero quod officiis reiciendis, veniam doloribus ea omnis
@@ -31,7 +19,7 @@
         provident iure. Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Esse earum nostrum officia, omnis doloremque dolorum iusto ipsum?
       </p>
-      <br />
+      <br>
       <p>
         Vel voluptas inventore libero quod officiis reiciendis, veniam doloribus
         ea omnis tempore adipisci enim unde, aspernatur quam consectetur
@@ -44,7 +32,6 @@
       </p>
 
       <h3>Where it all began...</h3>
-
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel voluptas
         inventore libero quod officiis reiciendis, veniam doloribus ea omnis
@@ -57,7 +44,6 @@
       </p>
 
       <h3>Our Recipes</h3>
-
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut sed sunt
         in nostrum quod odit cum consequatur et iusto, suscipit harum dolore?
@@ -68,9 +54,4 @@
         voluptatibus!
       </p>
     </div>
-
-    <div class="rights-reserved">
-      <p>All rights reserved. Foodfy's recipes.</p>
-    </div>
-  </body>
-</html>
+{% endblock %}

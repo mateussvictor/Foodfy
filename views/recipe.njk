@@ -1,0 +1,59 @@
+{% extends 'layout.njk' %}
+
+{% block head %}
+  <title>Recipe - {{item.title}}</title>
+  <link rel="stylesheet" href="/styles/recipe.css"/>
+{% endblock %}
+
+{% block content %}
+  <div class="img-container">
+    <img src="{{item.image_url}}" alt="Image of {{item.title}}">
+  </div>
+
+  <section class="hero-content">
+
+    <div class="title">
+      <h2>{{item.title}}</h2>
+      <p>by {{item.author}}</p>
+    </div>
+    
+    <div class="recipe-contents ingredients">
+      
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <a class="card-hide">hide</a>
+      </div>
+
+        <div class="recipe-steps">
+          <ul class="recipe-steps">
+            {% for ingredients in item.ingredients %}
+              <li>{{ingredients}}</li>
+            {% endfor%}
+          </ul>
+        </div>
+    </div>
+
+    <div class="recipe-contents preparation">
+      <div class="preparation">
+        <h3>Preparation</h3>
+        <a class="card-hide">show</a>
+      </div>
+
+      <div class="recipe-steps hide">
+        <ul>
+          {% for steps in item.preparation %}
+            <li>{{steps}}</li>
+          {% endfor%}
+        </ul>
+      </div>
+    </div>
+
+    <div class="recipe-contents information">
+      <h3>Additional Information</h3>
+      <a class="card-hide">hide</a>
+      <p class="recipe-steps">{{ item.information }}</p>
+    </div>
+  </section>
+  
+  <script src="/scripts/script.js"></script>
+{% endblock %}

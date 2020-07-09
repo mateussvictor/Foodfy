@@ -24,32 +24,44 @@ a {
 }
 
 
-/* Header-nav */
-
 header {
   max-width: 94rem;
-  margin-bottom: 2.7%;
   text-decoration: none;
   margin: 5vh auto;
-  min-height: 5vh;
+  min-height: 5vh; 
 }
 
 header nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  
+  justify-content: flex-end;
 }
 
 nav .logo {
-  margin-right: 8.7%;
+  margin-right: auto;
 }
 
-nav .nav-item {
-  margin-right: 2.1%;
+.nav-item {
+  margin-left: 3rem;
+  padding: 0.5rem;
 }
 
+.nav-item:after {
+  transition: all ease-in-out .2s;
+  background: none repeat scroll 0 0 #df4a33;
+  content: "";
+  display: block;
+  height: 0.2rem;
+  width: 0;
+}
 
-/* Container Section */
+.nav-item:hover:after {
+  width: 100%;
+  margin-top: 0.4rem;
+  margin-bottom: -0.4rem;
+}
+
 
 .container {
   background-color: #FBDFDB;
@@ -58,9 +70,10 @@ nav .nav-item {
   border-radius: 30px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 5.0rem;
+  margin-bottom: 4.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0 4px 8px 0 rgb(172, 172, 172), 0 6px 10px 0 rgb(172, 172, 172);
 }
 
 .container-txt h1 {
@@ -83,11 +96,9 @@ nav .nav-item {
 .container-img {
   display: grid;
   justify-content: center;
-  align-items: end;
+  align-items: end; 
 }
 
-
-/* Cards */
 
 #recipes {
   max-width: 94rem;
@@ -114,11 +125,12 @@ nav .nav-item {
 .recipe-card img {
   border-radius: 1.5rem;
   width: 30rem;
-  height: 14rem; 
+  height: 14rem;
+  box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
 }
 
 .recipe-card img:hover {
-  border: 0.6rem solid #ffddd7;
+  box-shadow: 4px 4px 8px 0px #df4a33, 0 6px 20px 0 #df4a33;
 }
 
 .recipe-card h3 {
@@ -137,67 +149,6 @@ nav .nav-item {
   color: #777777;
 }
 
-
-/* Modal styles */
-
-.modal-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.modal {
-  background-color: white;
-  width: 66rem;
-  height: 40rem;
-  margin: 21vh auto;
-  position: relative;
-  border-radius: 1.6rem;
-  text-align: center;
-}
-
-.modal-img {
-  width: 60rem;
-  height: 20rem;
-  border-radius: 1.6rem;
-  margin: 4% 2.1% 1.8% 2.1%;
-}
-
-.modal-title {
-  font-size: 2.4rem;
-  line-height: 2.8rem;
-  color: #111111;
-}
-
-.recipe-author {
-  font-size: 1.8rem;
-  line-height: 2.1rem;
-  color: #777777;
-  margin-top: 1%;  
-}
-
-.modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.close-modal {
-  margin-top: 9.5%;
-}
-
-.close-modal span {
-  cursor: pointer;
-  color: #999999;
-  font-size: 1.6rem;
-  line-height: 1.8rem;
-}
-
-
-/* Rights reserved div */
 
 .rights-reserved {
   background-color: #EEEEEE;
