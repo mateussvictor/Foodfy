@@ -18,7 +18,7 @@
 <br>
 
 ## :construction_worker: What do we create?
-<p> The creation of Foodfy was a challenge proposed in the Bootcamp LaunchBase from Rocketseat. Based on the guidelines and requirements provided by the instructor, it would be necessary to create a complete website for a recipe company called Foodfy.</p>
+<p> The creation of Foodfy was a challenge proposed in the Bootcamp LaunchBase from Rocketseat. Based on the guidelines and requirements provided by the instructor, it was necessary to create a complete website for a recipe company called Foodfy.</p>
 <br>
 
 ## :computer: Technologies
