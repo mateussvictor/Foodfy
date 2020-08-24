@@ -1,0 +1,39 @@
+{% block head %}
+  <title>Foodfy - Admin</title>
+  <link rel="stylesheet" href="/styles/admin.css"/>
+{% endblock %}
+
+{% block header %}
+  <div id="header-container">
+    <header>
+      <nav>
+        <a href="/" class="logo"><img src="/assets/logo-admin.png" alt="logo"/></a>
+      </nav>
+    </header>
+  </div>
+  {%endblock%}
+
+  {%block content%}
+    <h2>Gerenciar receitas</h2>
+
+    <section id="recipes">
+      {% for recipe in recipes %}
+
+        <div id="cards">
+          <div class="recipe-card">
+            <img src="{{ recipe.image }}" alt="Image of {{ recipe.title }}"/>
+          </div>
+
+          <div>
+            <h3 class="recipe-title">{{ recipe.title }}</h3>
+            <p class="author">by
+              {{ recipe.author }}</p>
+            <a href="/admin/recipes/{{ recipe.id }}">Visualizar</a>
+          </div>
+        </div>
+
+      {% endfor %}
+
+    </section>
+    {%endblock%}
+    

@@ -1,0 +1,70 @@
+{% extends './create.njk' %}
+
+{% block head %}
+  <title>Foodfy - Admin</title>
+  <link rel="stylesheet" href="/styles/admin.css"/>
+{% endblock %}
+
+{%block content%}
+
+  <section>
+    <div class="create-recipe">
+      <h3>Receita:
+        {{ recipe.title }}</h3>
+      <a href=" /admin/recipes/{{ recipe.id }}/edit">Editar receita</a>
+    </div>
+  </section>
+
+  <div class="img-container">
+    <img src="{{recipe.image_url}}" alt="Image of {{recipe.title}}">
+  </div>
+
+  <section class="hero-content">
+    <div class="title">
+      <h2>{{recipe.title}}</h2>
+      <p>by
+        {{recipe.author}}</p>
+    </div>
+
+    <div class="recipe-contents ingredients">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <a class="card-hide">hide</a>
+      </div>
+
+      <div>
+        <div class="recipe-steps">
+          {% for ingredients in recipe.ingredients %}
+            <p>- {{ingredients}}</li>
+            {% endfor%}
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-contents preparation">
+      <div class="preparation">
+        <h3>Preparation</h3>
+        <a class="card-hide">show</a>
+      </div>
+
+      <div>
+        <div class="recipe-steps">
+          {% for steps in recipe.preparation %}
+            <p>- {{steps}}</li>
+            {% endfor%}
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-contents information">
+      <h3>Additional Information</h3>
+      <a class="card-hide">hide</a>
+      <p class="recipe-steps">{{ recipe.information }}</p>
+    </div>
+  </section>
+
+  <script src="/scripts/script.js"></script>
+
+  {%block footer%}{%endblock%}
+
+{%endblock%}
