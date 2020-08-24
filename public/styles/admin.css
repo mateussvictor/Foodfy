@@ -1,0 +1,380 @@
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  color: #111111;
+  margin: 0vh auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h3 {
+  color: #111111;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+}
+
+#header-container {
+  width: 100%;
+  background-color: #111111;
+}
+
+header {
+  max-width: 94rem;
+  text-decoration: none;
+  margin: 0vh auto;
+  min-height: 5vh;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 8rem;
+}
+
+nav .logo {
+  margin-right: auto;
+}
+
+h2,
+span {
+  margin: 50px auto 30px auto;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: #111111;
+  max-width: 94rem;
+  font-weight: bold;
+}
+
+#recipes {
+  max-width: 94rem;
+  margin: 5vh auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+#cards {
+  max-width: 94rem;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  gap: 5%;
+}
+
+.recipe-card {
+  cursor: pointer;
+}
+
+.recipe-card img {
+  border-radius: 1.5rem;
+  width: 18rem;
+  height: 8rem;
+  box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
+}
+
+.recipe-card img:hover {
+  box-shadow: 4px 4px 8px 0px #df4a33, 0 6px 20px 0 #df4a33;
+}
+
+#cards div h3 {
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  font-weight: 400;
+  margin-bottom: 2%;
+  color: #111111;
+}
+
+#cards div p {
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  color: #777777;
+}
+
+#cards div a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #6558c3;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+}
+
+#cards div a:hover {
+  color: #8579e0;
+  transition: ease-in-out 150ms;
+}
+
+.create-recipe {
+  max-width: 94rem;
+  margin: 6.5vh auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recipe-intro {
+  max-width: 94rem;
+  margin: 6.5vh auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.recipe-intro h3 {
+  margin-right: auto;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: #111111;
+  max-width: 94rem;
+  font-weight: bold;
+}
+
+.recipe-intro button + button {
+  margin-left: 30px;
+}
+
+.create-recipe p {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: #111111;
+  max-width: 94rem;
+  font-weight: bold;
+}
+
+.create-recipe a {
+  width: 13.9rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-color: #6558c3;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 4px;
+  text-align: center;
+  padding: 9px;
+}
+
+.create-recipe a:hover {
+  background-color: #8579e0;
+  transition: ease-in-out 150ms;
+}
+
+.recipe-infos button {
+  width: 13.9rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-color: #6558c3;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.recipe-infos button:hover {
+  background-color: #8579e0;
+  transition: ease-in-out 150ms;
+}
+
+.admin .delete-btn {
+  width: 9.2rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-color: #DC4747;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 4px;
+}
+
+.admin .delete-btn:hover {
+  background-color: #f76e6e;
+  transition: ease-in-out 150ms;
+}
+
+.recipe-infos .delete-btn {
+  width: 9.2rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-color: #DC4747;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 4px;
+}
+
+.recipe-infos .delete-btn:hover {
+  background-color: #f76e6e;
+  transition: ease-in-out 150ms;
+}
+
+.recipe-infos {
+  max-width: 94rem;
+  margin: 0vh auto;
+}
+
+.recipe-infos label {
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.recipe-infos input {
+  display: block;
+  border: 1px solid #dddddd;
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+  padding: 15px 20px;
+}
+
+.recipe-infos textarea {
+  max-width: 100%;
+  min-width: 100%;
+  height: 257px;
+  max-height: 300px;
+  min-height: 100px;
+  display: block;
+  border-radius: 4px;
+  padding: 15px 20px;
+  border: 1px solid #dddddd;
+  margin-bottom: 10rem;
+}
+
+.recipe-infos p {
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.recipe-infos a {
+  display: inline-block;
+  margin-top: -1.5rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
+  line-height: 1.9rem;
+  color: #6558c3;
+  cursor: pointer;
+}
+
+.recipe-infos a:hover {
+  color: #8579e0;
+  transition: ease-in-out 150ms;
+}
+
+/* input:last-child {
+  height: 25.7rem;
+  margin-bottom: 10vh;
+} */
+
+div.img-container {
+  max-width: 94rem;
+  margin: 24px auto 50px auto;
+}
+
+.img-container img {
+  width: 94rem;
+  height: 28rem;
+  border-radius: 1.5rem;
+}
+
+section.hero-content {
+  max-width: 94rem;
+  margin: 3% auto;
+}
+
+section.hero-content h2 {
+  text-align: center;
+  font-size: 3.6rem;
+}
+
+section.hero-content p {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #444444;
+  margin-top: 1.6%;
+}
+
+section.hero-content h3 {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  margin-right: 1%;
+  margin-bottom: 3%;
+  display: inline-block;
+}
+
+section.hero-content a {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: #999999;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.hero-content a:hover {
+  color: #df4a33;
+}
+
+.hero-content .recipe-steps {
+  margin-top: -2%;
+  margin-bottom: 4%;
+}
+
+.recipe-steps p {
+  font-size: 1.7rem;
+  line-height: 2.8rem;
+  color: #444444;
+}
+
+div.title h2 {
+  text-align: center;
+  font-size: 3.6rem;
+  margin-bottom: 8px;
+}
+
+div.title p {
+  text-align: center;
+  color: #777777;
+  font-size: 2rem;
+  margin-bottom: 4%;
+  margin-top: 4px;
+}
+
+div.information p {
+  font-size: 1.7rem;
+  line-height: 2.8rem;
+  color: #444444;
+  margin-top: -2%;
+}
+
+.recipe-steps.hide {
+  display: none;
+  margin-bottom: 4%;
+}
+
