@@ -2,14 +2,19 @@
 
 {% block head %}
   <title>Recipes</title>
-  <link rel="stylesheet" href="/styles/recipes.css"/>
+  <link rel="stylesheet" href="/styles/styles.css"/>
 {% endblock %}
 
 {% block content %}
-
   <section id="recipes">
     <div id="cards">
       {% for recipe in recipes %}
+        <div class="recipe-card">
+          <img src="{{ recipe.image }}" alt="Image of {{ recipe.title }}"/>
+          <h3 class="recipe-title">{{ recipe.title }}</h3>
+          <p class="author">{{ recipe.author }}</p>
+        </div>
+
         <div class="recipe-card">
           <img src="{{ recipe.image }}" alt="Image of {{ recipe.title }}"/>
           <h3 class="recipe-title">{{ recipe.title }}</h3>

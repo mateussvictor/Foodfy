@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {% block head %}
       <title>Foodfy</title>
     {% endblock %}
   </head>
 
   <body>
-    <header>
-      <nav>
-        <a href="/" class="logo"
-          ><img src="/assets/logo.png" alt="logo"
-        /></a>
-        <a href="/about" class="nav-item">About</a>
-        <a href="/recipes" class="nav-item">Recipes</a>
-      </nav>
-    </header>
+    {% block header %}
+      <header>
+        <nav>
+          <a href="/" class="logo"><img src="/assets/logo.png" alt="logo"/></a>
+          <a href="/about" class="nav-item">About</a>
+          <a href="/recipes" class="nav-item">Recipes</a>
+        </nav>
+      </header>
+    {% endblock %}
 
     {% block content %}{% endblock %}
 
-    <footer class="rights-reserved">
-      <p>All rights reserved. Foodfy's recipes.</p>
-    </footer>
+    {%block footer%}
+      <footer class="rights-reserved">
+        <p>All rights reserved. Foodfy's recipes.</p>
+      </footer>
+    {%endblock%}
