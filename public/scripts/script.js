@@ -3,14 +3,14 @@ const recipeContents = document.querySelectorAll('.recipe-contents');
 
 for (let i = 0; i < cards.length; i++) {
   cards[i].addEventListener('click', () => {
-    window.location.href = `/recipes/${i}`;
+    location.href = `/recipes/${i}`;
   });
 }
 
 for (info of recipeContents) {
   const hide = info.querySelector('.card-hide');
   const recipeList = info.querySelector('.recipe-steps');
-  
+
   hide.addEventListener('click', () => {
     if (hide.innerHTML == 'hide') {
       hide.innerHTML = 'show';
@@ -19,4 +19,4 @@ for (info of recipeContents) {
     }
     recipeList.classList.toggle('hide');
   });
-}
+};
