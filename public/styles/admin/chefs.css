@@ -1,0 +1,316 @@
+/* GENERAL STYLE */
+
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  color: #111111;
+  margin: 0vh auto;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h3 {
+  color: #111111;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+}
+
+h2,
+span {
+  margin: 6.5vh auto;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: #111111;
+  max-width: 94rem;
+
+}
+
+/* INDEX CHEFS */
+
+#chefs-container {
+  max-width: 94rem;
+  margin: 5vh auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3.2rem;
+}
+
+#chefs-container #chef-card {
+  max-width: 94rem;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 6.4rem 1fr;
+  gap: 7%;
+  cursor: pointer;
+}
+
+#chefs-container #chef-card img {
+  border-radius: 50%;
+  width: 6.4rem;
+  height: 6.4rem;
+  box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
+  object-fit: cover;
+}
+
+#chefs-container #chef-card img:hover{
+  opacity: 0.7;
+}
+
+#chefs-container #chef-card div h3 {
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  font-weight: 400;
+  margin-bottom: 1.0rem;
+  color: #111111;
+}
+
+#chefs-container #chef-card a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #6558c3;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+}
+
+#chefs-container #chef-card div a:hover {
+  color: #8579e0;
+  transition: ease-in-out 150ms;
+}
+
+/* CREATE CHEF */
+
+.fields-container {
+  max-width: 94rem;
+  margin: 0vh auto;
+}
+
+.create-chef {
+  margin: 6.5vh auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fields-container button {
+  width: 13.9rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-color: #6558c3;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.fields-container button:hover {
+  background-color: #8579e0;
+  transition: ease-in-out 150ms;
+}
+
+.fields-container p {
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.fields-container input {
+  display: block;
+  border: 1px solid #dddddd;
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+  padding: 16px 20px;
+  outline: none;
+}
+
+/* SHOW CHEF */
+
+.show-chef {
+  max-width: 94rem;
+  margin: 6.5vh auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.show-chef a {
+  width: 13.9rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-color: #6558c3;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 4px;
+  text-align: center;
+  padding: 9px;
+}
+
+.show-chef a:hover {
+  background-color: #8579e0;
+  transition: ease-in-out 150ms;
+}
+
+.img-container.chef {
+  max-width: 94rem;
+  margin: 24px auto 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-container.chef img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chef-infos {
+  max-width: 94rem;
+  margin: 3% auto;
+}
+
+.chef-infos h2 {
+  text-align: center;
+  font-size: 3.6rem;
+}
+
+.chef-infos p {
+  font-size: 2.1rem;
+  line-height: 2.4rem;
+  color: #444444;
+  margin-top: 1.2%;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.chef-infos h3 {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  margin-top: 1%;
+  margin-right: 1%;
+  margin-bottom: 0%;
+  display: inline-block;
+}
+
+.chef-recipes {
+  max-width: 94rem;
+  margin: 4vh auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+.recipe-card {
+  max-width: 94rem;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  gap: 5%;
+}
+
+.recipe-card img {
+  border-radius: 1.0rem;
+  width: 18rem;
+  height: 8rem;
+  box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
+  object-fit: cover;
+}
+
+.recipe-card img:hover {
+  opacity: 0.7;
+}
+
+.recipe-card div h3 {
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  font-weight: 400;
+  margin-bottom: 2%;
+  color: #111111;
+}
+
+.recipe-card div p {
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  color: #777777;
+}
+
+.recipe-card div a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #6558c3;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+}
+
+.recipe-card div a:hover {
+  color: #8579e0;
+  transition: ease-in-out 150ms;
+}
+
+/* EDIT CHEF */
+
+.edit-chef {
+  max-width: 94rem;
+  margin: 6.5vh auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.edit-chef h3 {
+  margin-right: auto;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: #111111;
+  max-width: 94rem;
+  font-weight: bold;
+}
+
+.edit-chef button + button {
+  margin-left: 30px;
+}
+
+.edit-chef .delete-btn {
+  width: 9.2rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-color: #DC4747;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 4px;
+}
+
+.edit-chef .delete-btn:hover {
+  background-color: #f76e6e;
+  transition: ease-in-out 150ms;
+} 
+
+
+

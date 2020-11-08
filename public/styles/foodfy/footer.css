@@ -1,0 +1,15 @@
+footer {
+  padding: 1.8%;
+  color: #999999;
+  background-color: #eeeeee;
+  min-width: 100%;
+  text-align: center;
+}
+
+.rights-reserved {
+  min-width: 100%;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  position: absolute;
+  bottom: 0%;
+}

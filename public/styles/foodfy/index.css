@@ -1,0 +1,126 @@
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  color: #111111;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 8%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-container {
+  width: 100%;
+  background-color: rgb(252, 247, 247);
+  box-shadow: 0px 1px 4px grey;
+}
+
+header {
+  max-width: 94rem;
+  text-decoration: none;
+  margin: 0vh auto 6.5vh auto;
+  min-height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 8rem; 
+}
+
+.nav-item {
+  margin-left: 3rem;
+  padding: 0.5rem;
+}
+
+.nav-item:hover {
+  color: #df4a33;
+  transition: 200ms ease-in-out;
+}
+
+header button {
+  width: 9.1rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-color: #6558c3;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 4px;
+  text-align: center;
+  margin-left: 8px;
+}
+
+header button:hover {
+  background-color: #8579e0;
+  transition: ease-in-out 150ms;
+}
+
+header input {
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  width: 24.6rem;
+  height: 3.7rem;
+  padding: 15px 10px;
+  outline: none;
+  font-size: 1.4rem;
+}
+
+.container {
+  background-color: #fbdfdb;
+  width: 94rem;
+  height: 36.6rem;
+  border-radius: 1.6rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0 4px 8px 0 rgb(172, 172, 172), 0 6px 10px 0 rgb(172, 172, 172);
+  
+}
+
+.container-txt h1 {
+  padding-top: 21.6%;
+  padding-left: 13%;
+  padding-bottom: 0.9%;
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+}
+
+.container-txt p {
+  padding-left: 13%;
+  margin-top: 0.9%;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: #000000;
+  opacity: 80%;
+}
+
+.container-img {
+  display: grid;
+  justify-content: center;
+  align-items: end;
+}
