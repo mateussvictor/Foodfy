@@ -1,9 +1,9 @@
 const Chef = require('../../models/admin/Chef')
-const { date } = require('../../../lib/utils')
+
 
 module.exports = {
 
-  index(req, res) {
+  async index(req, res) {
     let { filter, page, limit } = req.query
 
     page = page || 1
@@ -15,37 +15,36 @@ module.exports = {
       page,
       limit,
       offset,
-      callback(chefs) {
-        let mathTotal = chefs[0] == undefined ? 0 : Math.ceil(chefs[0].total / limit)
-
-        const pagination = {
-          total: mathTotal,
-          page
-        }
-        return res.render('admin/chefs/index', { filter, pagination, chefs })
-      }
     }
 
-    Chef.paginate(params)
+    let results = await Chef.paginate(params);
+    let chefs = results.rows;
+    
+    let mathTotal = chefs[0] == undefined ? 0 : Math.ceil(chefs[0].total / limit)
+
+    const pagination = {
+      total: mathTotal,
+      page
+    }
+
+    return res.render('admin/chefs/index', { filter, pagination, chefs })
   },
 
-  show(req, res) {
-    Chef.find(req.params.id, (chef) => {
-      if(!chef) return res.send('Chef not found!')
+  async show(req, res) {
+    let results = await Chef.find(req.params.id)
+    chef = results.rows[0]
 
-      Chef.listRecipes(chef.id, (items) => {
-        chef.created_at = date(chef.created_at).format
-  
-        return res.render('admin/chefs/show', { chef, items })
-      })
-    })
+    results = await Chef.findRecipes(chef.id)
+    items = results.rows
+
+    return res.render('admin/chefs/show', { chef, items })
   },
 
-  create(req, res) {
+  async create(req, res) {
     return res.render('admin/chefs/create.njk')
   },
 
-  post(req, res) {
+  async post(req, res) {
     const keys = Object.keys(req.body)
 
     for(key of keys) {
@@ -54,23 +53,25 @@ module.exports = {
       }
     }
 
-    Chef.create(req.body, (chef) => {
-      return res.redirect(`/admin/chefs/${chef.id}`)
-    })
+    let results = await Chef.create(req.body)
+    chef_id = results.rows[0].id
+
+    return res.redirect(`/admin/chefs/${chef_id}`)
   },
   
-  edit(req, res) {
-    Chef.find(req.params.id, (chef) => {
-      if(!chef) return res.send('Chef not found!')
+  async edit(req, res) {
+    let results = await Chef.find(req.params.id)
+    chef = results.rows[0]
 
-      chef.created_at = date(chef.created_at).format
+    if(!chef) return res.send('Chef not found!')
 
-      return res.render('admin/chefs/edit', { chef })
-    })
+    return res.render('admin/chefs/edit', { chef })
   },
 
-  put(req, res) {
+  async put(req, res) {
     const keys = Object.keys(req.body)
+
+    results = await Chef.find(req.body.id)
 
     for(key of keys) {
       if(req.body[key] == '') {
@@ -78,14 +79,14 @@ module.exports = {
       }
     }
 
-    Chef.update(req.body, () => {
-      return res.redirect(`/admin/chefs/${req.body.id}`)
-    })
+    Chef.update(req.body)
+
+    return res.redirect(`/admin/chefs/${req.body.id}`)
   },
 
-  delete(req, res) {
-    Chef.delete(req.body.id, () => {
-      return res.redirect(`/admin/chefs`)
-    })
+  async delete(req, res) {
+    await Chef.delete(req.body.id)
+
+    return res.redirect(`/admin/chefs`)
   },
 }

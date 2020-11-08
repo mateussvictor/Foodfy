@@ -48,11 +48,13 @@
     <p>Chef</p> 
     <select name="chef_id">
       {% for chef in chefOptions%}
-        <option 
+        <option
           value="{{ chef.id }}"
           {% if recipe.chef_id == chef.id %} selected {%endif%}
         >{{ chef.name }}
         </option>
+
+        <option selected disabled hidden>Select chef</option>
       {% endfor %}
     </select>
   </div>
