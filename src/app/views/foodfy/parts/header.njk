@@ -1,0 +1,22 @@
+<div class="header-container">
+  <header>
+    <nav>
+      <a href="/" class="logo"><img src="/assets/logo.png" alt="logo"/></a>
+      <a href="/about" class="nav-item">About</a>
+      <a href="/recipes" class="nav-item">Recipes</a>
+      <a href="/chefs" class="nav-item">Chefs</a>
+    </nav>
+
+    <div class="search-input">
+      <form action="/search" method="GET">
+        <input 
+          type="text" 
+          name="filter" 
+          placeholder="Search recipe"
+          value="{{ filter }}"
+        >
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+</div>

@@ -1,0 +1,47 @@
+{% extends './layout.njk' %}
+
+{%block content%}
+
+  <section>
+    <div class="show-chef">
+      <h3>Chef: {{ chef.name }}</h3>
+      <a href="/chefs">Back</a>
+    </div>
+
+    <div class="img-container chef">
+      <img src="{{ chef.avatar_url }}" alt="Image of {{ chef.name }}">
+    </div>
+  </section>
+
+  <section class="chef-infos">
+    <div class="title">
+      <h2>{{ chef.name }}</h2>
+      <p>{{ chef.total_recipes }} recipes</p>
+    </div>
+
+    <div>
+      <h3>Recipes</h3>
+    </div>
+  </section>
+
+  <section class="chef-recipes">
+    {% for recipe in items %}
+      <div class="recipes-cards">
+        <div>
+          <a href="/recipes/{{ recipe.id }}">
+            <img src="{{ recipe.image }}" alt="Image of {{ recipe.title }}"/>
+          </a>
+        </div>
+
+        <div>
+          <a href="/recipes/{{ recipe.id }}">
+            <h3 class="recipe-title">{{ recipe.title }} Title</h3>
+            <p class="author">by {{ recipe.chef_name }}</p>
+            <a href="/recipes/{{ recipe.id }}">Visualizar</a>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+
+{%endblock%}
