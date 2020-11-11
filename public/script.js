@@ -108,7 +108,7 @@ if(pagination) {
 const photosUpload = {
   input: '',
   preview: document.querySelector('#photos-preview'),
-  uploadLimit: 8,
+  uploadLimit: 5,
   files: [],
 
   handleFileInput(input) {
@@ -184,7 +184,7 @@ const photosUpload = {
   getRemoveButton() {
     const button = document.createElement('i')
     button.classList.add('material-icons')
-    button.innerHTML = 'delete_forever'
+    button.innerHTML = 'close'
     return button
   },
 
@@ -211,12 +211,113 @@ const photosUpload = {
 
     photoDiv.remove()
   }
-
 }
 
+const avatarUpload = {
+  input: '',
+  preview: document.querySelector('#avatar-preview'),
+  uploadLimit: 1,
+  files: [],
 
+  handleFileInput(input) {
+    const { files: fileList } = event.target
+    avatarUpload.input = event.target
 
+    if(avatarUpload.hasLimit(event)) return
 
+    Array.from(fileList).forEach(file => {
+      avatarUpload.files.push(file)
+      
+      const reader = new FileReader()
 
+      reader.onload= () => {
+        const image = new Image()
+        image.src = String(reader.result)
+        const div = avatarUpload.getContainer(image)
+        avatarUpload.preview.appendChild(div)
+      }
 
+      reader.readAsDataURL(file)
+    })
+  
+    avatarUpload.input.files = avatarUpload.getAllFiles()
+  },
+
+  hasLimit(event) {
+    const { uploadLimit, input, preview } = avatarUpload
+    const { files: fileList } = input
+
+    if(fileList.length > uploadLimit) {
+      alert(`Envie no máximo ${uploadLimit} fotos`)
+      event.preventDefault()
+      return true
+    }
+
+    const photosDiv = []
+    preview.childNodes.forEach( item => {
+      if(item.classList && item.classList.value == 'photo')
+      photosDiv.push(item)
+    })
+
+    const totalPhotos = fileList.length + photosDiv.length
+    if(totalPhotos > uploadLimit) {
+      alert('Envie somente uma foto.')
+      event.preventDefault()
+      return true
+    }
+    return false
+  },
+
+  getAllFiles() {
+    const dataTransfer = new ClipboardEvent('').clipboardData || new DataTransfer()
+
+    avatarUpload.files.forEach(file => dataTransfer.items.add(file))
+
+    return dataTransfer.files
+  },
+
+  getContainer(image) {
+    const div = document.createElement('div')
+    div.classList.add('photo')
+
+    div.onclick = avatarUpload.removePhoto
+
+    div.appendChild(image)
+
+    div.appendChild(avatarUpload.getRemoveButton())
+
+    return div
+  },
+
+  getRemoveButton() {
+    const button = document.createElement('i')
+    button.classList.add('material-icons')
+    button.innerHTML = 'close'
+    return button
+  },
+
+  removePhoto(event) {
+    const photoDiv = event.target.parentNode
+    const photosArray = Array.from(avatarUpload.preview.children)
+    const index = photosArray.indexOf(photoDiv)
+
+    avatarUpload.files.splice(index, 1)
+    avatarUpload.input.files = avatarUpload.getAllFiles()
+
+    photoDiv.remove()
+  },
+  
+  removeOldPhoto(event) {
+    const photoDiv = event.target.parentNode
+
+    if(photoDiv.id) {
+      const removedFiles = document.querySelector('input[name="removed_files"')
+      if(removedFiles) {
+        removedFiles.value += `${photoDiv.id},`
+      }
+    }
+
+    photoDiv.remove()
+  }
+}
 
