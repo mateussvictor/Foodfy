@@ -3,16 +3,16 @@ module.exports = {
   date(timestamp) {
     const date = new Date(timestamp)
 
-    const year = date.getUTCFullYear()
-    const month = `0${date.getUTCMonth() + 1}`
-    const day = `0${date.getUTCDate()}`
+    const year = date.getFullYear()
+    const month = `0${date.getMonth() + 1}`.slice(-2)
+    const day = `0${date.getDate()}`.slice(-2)
 
     return {
         day,
         month,
         year,
-        iso: `${year}-${month.slice(-2)}-${day.slice(-2)}`,
-        format: `${day.slice(-2)}/${month.slice(-2)}/${year}`
+        iso: `${year}-${month}-${day}`,
+        format: `${day}/${month}/${year}`
     }
   }
 }
