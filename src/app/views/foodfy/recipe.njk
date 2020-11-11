@@ -8,15 +8,14 @@
     </div>
 
     <div class="img-container recipe">
-      <img src="{{ recipe.image }}" alt="Image of {{ recipe.title }}">
+      <img src="{{ recipe.src }}" alt="Image of {{ recipe.title }}">
     </div>
   </section>
-
 
   <section class="recipe-infos">
     <div class="title">
       <h2>{{ recipe.title }}</h2>
-      <p>by {{ recipe.chefs_name }}</p>
+     <a href="/chefs/{{ recipe.chef_id }}">by {{ recipe.chef_name }}</a>
     </div>
 
     <div class="recipe-contents ingredients">

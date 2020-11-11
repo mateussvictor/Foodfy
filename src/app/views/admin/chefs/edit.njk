@@ -3,7 +3,6 @@
 {% block content %}
 
   <section class="fields-container">
-
     <div class="edit-chef">
       <h3>Editing chef</h3>
       <button class="delete-btn" type="submit" form="form-delete">Delete</button>
@@ -14,7 +13,12 @@
       <input type="hidden" name="id" value="{{ chef.id }}">   
     </form>
     
-    <form id="form-save" method="POST" action="/admin/chefs/{{chef.id}}?_method=PUT">
+    <form
+      id="form-save"
+      method="POST"
+      action="/admin/chefs/{{chef.id}}?_method=PUT"
+      enctype="multipart/form-data"
+    >
       <input type="hidden" name="id" value="{{ chef.id }}">
      {% include '../parts/create-chef.njk' %}
     </form>

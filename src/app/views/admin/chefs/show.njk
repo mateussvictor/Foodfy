@@ -9,7 +9,7 @@
     </div>
   
     <div class="img-container chef">
-      <img src="{{ chef.avatar_url }}" alt="Image of {{chef.name}}">
+      <img src="{{ file.path }}" alt="Image of {{chef.name}}">
     </div>
   </section>
 
@@ -29,11 +29,11 @@
   </section>
 
   <section class="chef-recipes">
-    {% for recipe in items %}
+    {% for recipe in recipes %}
       <div class="recipe-card">
         <a href="/admin/recipes/{{ recipe.id }}">
         <div>
-          <img src="{{ recipe.image }}" alt="Image of {{ recipe.title }}"/>
+          <img src="{{ recipe.src }}" alt="Image of {{ recipe.title }}"/>
         </div>
 
         <div>

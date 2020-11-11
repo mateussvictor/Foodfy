@@ -1,12 +1,11 @@
 {% extends './layout.njk' %}
 
 {% block content %}
-
   <section id="recipes">
     <div id="cards">
       {% for recipe in items %}
         <a class="recipe-card" href="/recipes/{{ recipe.id }}">
-          <img src="{{ recipe.image }}" alt="Image of {{ recipe.title }}"/>
+          <img src="{{ recipe.src }}" alt="Image of {{ recipe.title }}"/>
           <h3 class="recipe-title">{{ recipe.title }}</h3>
           <p class="author"> by {{ recipe.chef_name }}{{ recipe.author}}</p>
         </a>
@@ -19,5 +18,4 @@
     data-total="{{ pagination.total }}"
     data-filter="{{ filter}}">
   </div>
-
 {% endblock %}

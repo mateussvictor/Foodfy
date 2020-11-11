@@ -8,9 +8,8 @@
         <div id="chef-card">
           <a href="/admin/chefs/{{ chef.id }}">
             <div>
-              <img src="{{ chef.avatar_url }}" alt="Image of {{ chef.name }}"/>
+              <img src="{{ chef.file_path }}" alt="Image of {{ chef.name }}"/>
             </div>
-            
             <div>
               <h3 class="recipe-title">{{ chef.name }}</h3>
               <a href="/admin/chefs/{{ chef.id }}">Visualizar</a>

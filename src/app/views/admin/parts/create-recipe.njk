@@ -1,13 +1,3 @@
-  <div>
-    <p>Recipe image</p>
-    <input 
-      type="text" 
-      name="image" 
-      value="{{ recipe.image }}"
-    >
-  </div>
-
-{# 
   <div class="item">
     <p>Recipe image</p>
 
@@ -30,13 +20,13 @@
               <img src="{{image.src}}" alt="">
               <i class="material-icons"
                 onclick="photosUpload.removeOldPhoto(event)"
-              ></i>
+              >close</i>
             </div>
         {%endfor%}
         <input type="hidden" name="removed_files">
       {%endif%}
     </div>
-  </div> #}
+  </div>
 
    <div>
     <p>Recipe name</p>
@@ -53,8 +43,6 @@
           {% if recipe.chef_id == chef.id %} selected {%endif%}
         >{{ chef.name }}
         </option>
-
-        <option selected disabled hidden>Select chef</option>
       {% endfor %}
     </select>
   </div>
@@ -109,5 +97,3 @@
     <p>Informações adicionais</p>
     <textarea name="information" rows="10">{{ recipe.information}}</textarea>
   </div>
-
-  <script src="/script.js"></script>

@@ -1,13 +1,12 @@
 {% extends './layout.njk' %}
 
 {% block content%}
-  
   <section id="chefs-container">
     {% for chef in chefs %}
       <div id="chef-card">
-          <a href="/chefs/{{ chef.id }}">
+        <a href="/chefs/{{ chef.id }}">
           <div>
-            <img src="{{ chef.avatar_url }}" alt="Image of {{ chef.name }}"/>
+            <img src="{{ chef.file_path }}" alt="Image of {{ chef.name }}"/>
           </div>
 
           <div>

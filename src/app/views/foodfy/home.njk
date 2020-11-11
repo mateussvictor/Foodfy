@@ -20,11 +20,11 @@
   <main id="recipes">
     <h2>Most accessed</h2>
     <div id="cards">
-      {% for recipe in items %}
-        <a class="recipe-card" href="/recipes/{{ recipe.id }}">
-          <img src="{{ recipe.image }}" alt="Image of {{ recipe.name }}"/>
-          <h3 class="recipe-title">{{ recipe.title }}</h3>
-          <p class="author">by {{ recipe.chef_name }} {{ recipe.author }}</p>
+      {% for item in items %}
+        <a class="recipe-card" href="/recipes/{{ item.id }}">
+          <img src="{{ item.src }}" alt="Image of {{ item.title }}"/>
+          <h3 class="recipe-title">{{ item.title }}</h3>
+          <p class="author">by {{ item.chef_name }} {{ item.author }}</p>
         </a>
       {% endfor %}
     </div>

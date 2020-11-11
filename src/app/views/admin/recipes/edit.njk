@@ -3,14 +3,14 @@
 {% block content %}
 
   <section class="fields-container">
-
     <div class="edit-recipe">
       <h3>Editing recipe</h3>
       <button 
         class="delete-btn" 
         type="submit" 
-        form="form-delete" 
-        onclick="confirmation()">Delete
+        form="form-delete"
+        onclick= "confirmation()">
+        Delete
       </button>
       <button type="submit" form="form-save">Save recipe</button>
     </div>
@@ -27,6 +27,7 @@
       id="form-save"
       method="POST"
       action="/admin/recipes/{{recipe.id}}?_method=PUT"
+      enctype="multipart/form-data"
       >
       <input type="hidden" name="id" value="{{ recipe.id }}">
       {% include '../parts/create-recipe.njk' %}
