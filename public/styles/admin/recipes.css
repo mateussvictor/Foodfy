@@ -153,6 +153,7 @@ span {
   padding: 15px 20px;
   border: 1px solid #dddddd;
   margin-bottom: 10rem;
+  line-height: 3rem;
 }
 
 .fields-container p {
