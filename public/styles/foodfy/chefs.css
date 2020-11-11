@@ -1,8 +1,8 @@
 :root {
   --primary-color: #6558c3;
 
-  --primary-hover-color: #8579e0;
-  --secundary-hover-color: #f1efff;
+  --first-hover-color: #8579e0;
+  --second-hover-color: #f1efff;
 }
 
 #chefs-container {
@@ -51,7 +51,7 @@
 }
 
 #chefs-container #chef-card div a:hover {
-  color: var(--primary-hover-color);
+  color: var(--first-hover-color);
   transition: ease-in-out 150ms;
 }
 
@@ -84,7 +84,7 @@
 }
 
 .show-chef a:hover {
-  background-color: var(--secundary-hover-color);
+  background-color: var(--second-hover-color);
   transition: ease-in-out 150ms;
 }
 
@@ -180,6 +180,6 @@
 }
 
 .recipes-cards div a:hover {
-  color: var(--primary-hover-color);
+  color: var(--first-hover-color);
   transition: ease-in-out 150ms;
 }
