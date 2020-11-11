@@ -310,7 +310,76 @@ span {
 .edit-chef .delete-btn:hover {
   background-color: #f76e6e;
   transition: ease-in-out 150ms;
-} 
+}
+
+
+form .item #chef_uploadField {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 13.9rem;
+  height: 3.7rem;
+  border: 1px solid #dddddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4rem;
+  margin-bottom: 2.4rem;
+}
+
+form .item #uploadInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+::-webkit-file-upload-button { cursor: pointer }
+
+form .item #avatar-preview {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 0.8rem;
+  width: 14.9rem;
+  margin: 8px 0;
+}
+
+form .item #avatar-preview img {
+  width: 14.9rem;
+  height: 14.9rem;
+  object-fit: cover;
+  border-radius: 0.4rem;
+}
+
+#avatar-preview .photo {
+  position: relative;
+}
+
+#avatar-preview .photo i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.8);
+  color: red;
+  width: 14.9rem;
+  height: 14.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 400%;
+  cursor: pointer;
+  opacity: 0;
+  transition: 350ms;
+}
+
+#avatar-preview .photo:hover i {
+  opacity: 1;
+}
 
 
 
