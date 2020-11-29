@@ -1,0 +1,43 @@
+.drop-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.drop-menu .drop-content a {
+  margin: 0.4rem;
+  padding: 0.8rem;
+}
+
+.drop-menu .drop-content {
+  position: absolute;
+  visibility: hidden;
+
+  top: 1.0rem;
+  left: 0;
+  width: 100%;
+ 
+
+  margin-top: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color:#111111; /* #111111 */
+
+  border-radius: 0.4rem;
+
+  transition: all 80ms;
+  
+}
+
+.drop-menu:hover .drop-content {
+  visibility: visible;
+}
+
+

@@ -1,0 +1,172 @@
+/* USERS LIST */
+.users-header {
+  max-width: 94rem;
+  margin: 5.0rem auto 10vh auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.users-header a,
+.users-header button {
+  width: 13.9rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.users-header a:hover {
+  background-color: var(--primary-hover-color);
+  transition: ease-in-out 150ms;
+}
+
+.users-container {
+  max-width: 94rem;
+  margin: 7.2rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  column-gap: 10rem;
+  row-gap: 6.4rem;
+}
+
+
+.user-card p:first-child {
+  margin-bottom: 0.4rem;
+  font-size: 1.8rem;
+}
+
+.user-card p + p {
+  color: #777777;
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.user-card a {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.user-card a:hover {
+  color: #8579e0;
+  transition: ease-in-out 150ms;
+}
+
+.user-card button {
+  cursor: pointer;
+  color: var(--delete-button-color);
+  font-weight: bold;
+  background-color: white;
+  text-align: center;
+  font-size: 1.6rem;
+  outline: none;
+}
+
+.user-card button:hover{
+  color: var(--delete-hover-color);
+  transition: ease-in-out 150ms;
+}
+
+.user-card #form-delete {
+  display: inline-block;
+  margin-left: 1.6rem;
+}
+
+
+
+.user-card a + a:hover{
+  color: var(--delete-hover-color);
+}
+
+/* CREATE / EDIT */
+.create-user,
+.edit-user {
+  max-width: 94rem;
+  margin: 6.5vh auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.create-user p,
+.edit-user p {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: #111111;
+  max-width: 94rem;
+  font-weight: bold;
+}
+
+.create-user .cancel-btn {
+  background-color: #8A8A8A;
+  color: #FFFFFF;
+  margin-left: 1.6rem;
+}
+
+.create-user .cancel-btn:hover {
+  background-color: #9e9e9e ;
+}
+
+.edit-user .delete-btn {
+  margin-right: 1.6rem;
+  background-color: #DC4747;
+}
+
+.edit-user .delete-btn:hover {
+  background-color: #f76e6e;
+  transition: ease-in-out 150ms;
+}
+
+.create-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  column-gap: 4.0rem;
+  row-gap: 4.0rem;
+}
+
+.create-container div p:last-child{
+  display: inline-block;
+}
+
+input[name="email"],
+input[name="name"],
+input[name="password"] {
+  display: inline-block;
+  width: 45rem;
+  height: 4.9rem;
+  margin: 0;
+}
+
+input[name="is_admin"] {
+  width: 1.4rem;
+  margin-right: 1.2rem;
+  display: inline-block;
+
+}
+
+/* VALIDATE */
+.create-container div:nth-child(2) {
+  position: relative;
+}
+
+.create-container .error {
+  color: #DC4747;
+  font-weight: bold;
+  font-size: 1.4rem;
+  bottom: -3.4rem;
+  left: 0.5rem;
+
+  position: absolute;
+}
+
+

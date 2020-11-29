@@ -1,5 +1,3 @@
-@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap';
-
 :root {
   --primary-color: #6558c3;
   --delete-button-color: #DC4747;
@@ -39,13 +37,14 @@ h3 {
 
 h2,
 span {
-  margin: 50px auto 8px auto;
+  margin: 5.0rem auto 0.8rem auto;
   font-size: 2.4rem;
   line-height: 2.8rem;
   color: #111111;
   max-width: 94rem;
   font-weight: bold;
 }
+
 /* INDEX RECIPES */
 
 #recipes-container {
@@ -140,6 +139,31 @@ span {
   margin-bottom: 3rem;
   padding: 16px 20px;
   outline: none;
+}
+
+.fields-container input[name="ingredients[]"],
+.fields-container input[name="preparation[]"] {
+  width: 95%;
+  display: inline-block;
+}
+
+.create-field {
+  position: relative;
+
+
+}
+
+.create-field i {
+  position: absolute;
+  margin-left: 2.0rem;
+  margin-top: 0.8rem;
+  font-size: 200%;
+  color: #dd7676;
+  cursor: pointer;
+}
+
+.create-field i:hover {
+  color: #da0e0e;
 }
 
 .fields-container textarea {
@@ -259,12 +283,15 @@ span {
   margin-bottom: 8px;
 }
 
-.recipe-infos .title p {
-  text-align: center;
+.recipe-infos .title a {
   color: #777777;
   font-size: 2rem;
   margin-bottom: 4%;
   margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: initial;
 }
 
 .recipe-infos {
@@ -317,6 +344,8 @@ span {
 
 .recipe-steps.text {
   margin-top: -0.5%;
+  line-height: 3rem;
+  margin-left: 1.2rem;
 }
 
 .recipe-steps.hide {
@@ -364,7 +393,7 @@ span {
   transition: ease-in-out 150ms;
 }
 
-/* Photos Upload */
+/* PHOTOS UPLOAD */
 
 form .item #photos-upload {
   position: relative;
@@ -413,7 +442,6 @@ form .item #photos-preview {
 form .item #photos-preview img {
   width: 14.9rem;
   height: 14.9rem;
-  /* height: 15rem; */
   object-fit: cover;
   border-radius: 0.4rem;
 }
@@ -465,5 +493,72 @@ form .item #photos-preview img {
   border-bottom: 1px solid var(--primary-color);
 }
 
+.img-container .highlight > img {
+  cursor: zoom-in;
+}
 
+.img-container .gallery-preview { 
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 1.0rem;
+  max-width: 94rem;
+  flex-wrap: wrap;
+}
 
+.img-container .gallery-preview img {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.img-container .gallery-preview img:hover,
+.img-container .gallery-preview img.active {
+  opacity: 1.0;
+  transition: 100ms ease-in;
+}
+
+/* LIGHTBOX */
+
+.highlight .lightbox-target {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  z-index: 100;
+  left: 0;
+  top: -100%;
+  opacity: 0;
+  transition: 400ms;
+}
+
+.highlight .lightbox-target img {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.highlight a.lightbox-close {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  right: 0rem;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 400ms;
+}

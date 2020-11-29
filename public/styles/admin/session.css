@@ -1,0 +1,77 @@
+.login-form h3 {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+a.session-logo {
+  margin: 0;
+}
+
+.session-header header {
+  max-width: 50rem;
+  text-decoration: none;
+  margin: 2vh auto 4vh auto;
+  min-height: 5vh;
+}
+
+.session-header header nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 50rem;
+}
+
+.login-form {
+  max-width: 50rem;
+  margin: 8vh auto 30vh auto
+}
+
+.login-form .item input {
+  width: 100%;
+  font-size: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+::placeholder {
+  color: #999999;
+}
+
+.login-form div:first-child {
+  margin-bottom: 2.4%;
+}
+
+.login-form .buttons a {
+  margin: 0;
+  color: #969696;
+}
+
+.login-form .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+}
+
+.login-form .form-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 3.6rem;
+}
+
+.login-form div:nth-child(2) {
+  position: relative;
+}
+
+.login-form .error {
+  color: #DC4747;
+  font-weight: normal;
+  font-size: 1.4rem;
+  bottom: -2rem;
+  left: 0.2rem;
+  width: 280px;
+  padding: 2.1rem;
+  position: absolute;
+}
+
+

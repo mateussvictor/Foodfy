@@ -7,10 +7,12 @@
 
 #chefs-container {
   max-width: 94rem;
-  margin: 6.5vh auto;
+  min-height: 100vh;
+  margin: 4vh auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 3.2rem;
+  position: relative;
 }
 
 #chefs-container #chef-card {
@@ -131,23 +133,28 @@
   display: inline-block;
 }
 
-.chef-recipes {
+#recipes-container {
   max-width: 94rem;
-  margin: 4vh auto;
+  margin: 5vh auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3.2rem;
 }
 
-.recipes-cards {
+#recipes-container #recipe-card {
   max-width: 94rem;
   margin: 0;
   display: grid;
   grid-template-columns: 18rem 1fr;
   gap: 5%;
+  cursor: pointer;
 }
 
-.recipes-cards img {
+#recipe-card img:hover {
+  opacity: 0.7;
+}
+
+#recipes-container #recipe-card img {
   border-radius: 1.0rem;
   width: 18rem;
   height: 8rem;
@@ -155,15 +162,15 @@
   object-fit: cover;
 }
 
-.recipes-cards div h3 {
+#recipes-container #recipe-card div h3 {
   font-size: 1.8rem;
   line-height: 2.1rem;
   font-weight: 400;
-  margin-bottom: 2%;
+  margin-bottom: 0.5rem;
   color: #111111;
 }
 
-.recipes-cards div p {
+#recipes-container #recipe-card div p {
   font-size: 1.4rem;
   line-height: 1.6rem;
   font-weight: 400;
@@ -171,7 +178,7 @@
   color: #777777;
 }
 
-.recipes-cards div a {
+#recipes-container #recipe-card div a {
   text-decoration: none;
   font-weight: bold;
   color: var(--primary-color);
@@ -179,7 +186,7 @@
   line-height: 1.6rem;
 }
 
-.recipes-cards div a:hover {
-  color: var(--first-hover-color);
+#recipes-container #recipe-card div a:hover {
+  color: #8579e0;
   transition: ease-in-out 150ms;
 }

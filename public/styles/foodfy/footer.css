@@ -11,5 +11,6 @@ footer {
   font-size: 1.4rem;
   line-height: 1.6rem;
   position: absolute;
-  bottom: 0%;
+  bottom: 0;
+  height: 2.5rem;
 }

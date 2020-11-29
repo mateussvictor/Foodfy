@@ -16,7 +16,7 @@ body {
   font-size: 1.6rem;
   color: #111111;
   margin: 0 auto;
-  min-height: 100vh;
+  height: 100%;
   position: relative;
   padding-bottom: 8%;
 }
@@ -56,7 +56,17 @@ header nav {
 
 .nav-item:hover {
   color: #df4a33;
-  transition: 200ms ease-in-out;
+  transition: 150ms ease-in-out;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  font-weight: bold;
 }
 
 header button {

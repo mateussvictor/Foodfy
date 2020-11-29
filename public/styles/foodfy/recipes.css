@@ -7,7 +7,10 @@
 
 #recipes {
   max-width: 94rem;
+  min-height: 100vh;
   margin: auto;
+  padding-bottom: 8rem;
+  position: relative;
 }
 
 #recipes h2 {
@@ -200,4 +203,74 @@
   font-weight: bold;
   filter: brightness(0.4);
   border-bottom: 1px solid var(--primary-color);
+}
+
+.img-container .highlight > img {
+  cursor: zoom-in;
+}
+
+.img-container .gallery-preview { 
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 1.0rem;
+  max-width: 94rem;
+  flex-wrap: wrap;
+}
+
+.img-container .gallery-preview img {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.img-container .gallery-preview img:hover,
+.img-container .gallery-preview img.active {
+  opacity: 1.0;
+  transition: 100ms ease-in;
+}
+
+/* LIGHTBOX */
+
+.highlight .lightbox-target {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  z-index: 100;
+  left: 0;
+  top: -100%;
+  opacity: 0;
+  transition: 400ms;
+}
+
+.highlight .lightbox-target img {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.highlight a.lightbox-close {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  right: 0rem;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 400ms;
 }

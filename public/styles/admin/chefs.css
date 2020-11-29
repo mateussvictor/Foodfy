@@ -1,7 +1,4 @@
 /* GENERAL STYLE */
-
-@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap';
-
 * {
   margin: 0;
   padding: 0;
@@ -143,6 +140,7 @@ span {
   outline: none;
 }
 
+
 /* SHOW CHEF */
 
 .show-chef {
@@ -215,62 +213,6 @@ span {
   display: inline-block;
 }
 
-.chef-recipes {
-  max-width: 94rem;
-  margin: 4vh auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3.2rem;
-}
-
-.recipe-card {
-  max-width: 94rem;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 18rem 1fr;
-  gap: 5%;
-}
-
-.recipe-card img {
-  border-radius: 1.0rem;
-  width: 18rem;
-  height: 8rem;
-  box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
-  object-fit: cover;
-}
-
-.recipe-card img:hover {
-  opacity: 0.7;
-}
-
-.recipe-card div h3 {
-  font-size: 1.8rem;
-  line-height: 2.1rem;
-  font-weight: 400;
-  margin-bottom: 2%;
-  color: #111111;
-}
-
-.recipe-card div p {
-  font-size: 1.4rem;
-  line-height: 1.6rem;
-  font-weight: 400;
-  margin-bottom: 1.6rem;
-  color: #777777;
-}
-
-.recipe-card div a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #6558c3;
-  font-size: 1.4rem;
-  line-height: 1.6rem;
-}
-
-.recipe-card div a:hover {
-  color: #8579e0;
-  transition: ease-in-out 150ms;
-}
 
 /* EDIT CHEF */
 
@@ -312,6 +254,9 @@ span {
   transition: ease-in-out 150ms;
 }
 
+.chef p:first-child {
+  margin-top: 3rem;
+}
 
 form .item #chef_uploadField {
   position: relative;
