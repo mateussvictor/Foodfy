@@ -4,24 +4,23 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
     {% include './parts/styles.njk' %}
 
+      
     {% block head %}
       <title>Foodfy</title>
     {% endblock %}
   </head>
 
   <body>
+    {% include 'parts/messages.njk' %}
+    
+    {% block header %}{% endblock %}
 
-    {% include './parts/header.njk' %}
-      
-    {% block content %}{% endblock %}
+    {% include 'admin/layout.njk' %}
 
-    {% block footer %}{% endblock %}
-
-    {% include 'parts/footer.njk' %}
-
-      <script src="/script.js"></script>
+    {%block content%}{%endblock%}
+    
+    <script src="/script.js"></script>
   </body>
 </html>

@@ -63,7 +63,7 @@
 
 .show-recipe {
   max-width: 94rem;
-  margin: 5vh auto;
+  margin: 6.5vh auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -111,13 +111,17 @@
   margin-bottom: 8px;
 }
 
+.recipe-infos .title div:last-child{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .recipe-infos .title a {
-  text-align: center;
   color: #777777;
   font-size: 2rem;
   margin-bottom: 4%;
   margin-top: 4px;
-  display: block;
 }
 
 .recipe-infos .title a:hover {

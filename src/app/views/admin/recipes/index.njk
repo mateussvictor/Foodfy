@@ -1,30 +1,9 @@
-{% extends '../layout.njk' %}
+{% extends 'layout.njk' %}
 
 {%block content%}
   <h2>Gerenciar receitas</h2>
-  
-  <section id="recipes-container">
-    {% for recipe in recipes %}
-      <div id="recipe-card">
-        <a href="/admin/recipes/{{ recipe.id }}">
-          <div>
-            <img src="{{ recipe.src }}" alt="Image of {{ recipe.title }}"/>
-          </div>
 
-          <div>
-            <h3 class="recipe-title">{{ recipe.title }}</h3>
-            <p class="author">by {{ recipe.chef_name }}{{ recipe.author }}</p>
-            <a href="/admin/recipes/{{ recipe.id }}">Visualizar</a>
-          </div>
-        </a>
-      </div>
-    {% endfor %}
-  </section>
+  {% include 'parts/recipes-list.njk' %}
 
-  <div class="pagination"
-    data-page= "{{ pagination.page }}"
-    data-total="{{ pagination.total }}"
-    data-filter="{{ filter}}">
-  </div>
 {%endblock%}
     

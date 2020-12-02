@@ -1,0 +1,32 @@
+{% extends 'session/layout.njk' %}
+
+  {% block content %}
+    <div class="fields-container login-form">
+      <form method="POST" action="/admin/users/login">
+        <div>
+          <h3>Iniciar Sessão</h3>
+        </div>
+
+        <div class="item">
+          <p>Email</p>
+          <input 
+            type="text"
+            placeholder="Digite seu email"
+            name="email"
+            value="{{ user.email }}"
+            onblur="Validate.apply(this, 'isEmail')"
+            />
+        </div>
+
+        <div class="item">
+          <p>Senha</p>
+          <input type="password" name="password" placeholder="Digite sua senha">
+        </div>
+
+        <div class="buttons">
+          <a href="/admin/users/forgot-password">Perdeu a senha?</a>
+          <button>Acessar</button>
+        </div>
+      </form>
+    </div>
+  {% endblock %}

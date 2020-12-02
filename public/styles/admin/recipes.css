@@ -149,20 +149,18 @@ span {
 
 .create-field {
   position: relative;
-
-
 }
 
-.create-field i {
+.field-container .create-field span i {
   position: absolute;
-  margin-left: 2.0rem;
+  margin-left: 1.6rem;
   margin-top: 0.8rem;
-  font-size: 200%;
+  font-size: 150%;
   color: #dd7676;
   cursor: pointer;
 }
 
-.create-field i:hover {
+.create-field span i:hover {
   color: #da0e0e;
 }
 
@@ -247,6 +245,12 @@ span {
   justify-content: space-between;
 }
 
+.show-recipe h3 {
+  color: #111111;
+  font-size: 2.0rem;
+  line-height: 2.4rem;
+}
+
 .show-recipe a {
   width: 13.9rem;
   height: 3.7rem;
@@ -287,11 +291,14 @@ span {
   color: #777777;
   font-size: 2rem;
   margin-bottom: 4%;
-  margin-top: 4px;
+  margin-top: 2%;
+  text-transform: initial;
+}
+
+.recipe-infos .title div:last-child{
   display: flex;
   justify-content: center;
   align-items: center;
-  text-transform: initial;
 }
 
 .recipe-infos {
@@ -327,8 +334,8 @@ span {
   text-transform: uppercase;
 }
 
-.recipe-infos a:hover {
-  color: #df4a33;
+.recipe-infos .title a:hover {
+  color: #1f1717;
 }
 
 .recipe-infos .recipe-steps {

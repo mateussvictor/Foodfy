@@ -1,22 +1,41 @@
-<!DOCTYPE html>
+  <div id="header-container">
+    <header>
+      <nav>
+        <div>
+          <a href="/" class="logo"><img src="/assets/logo-admin.png" alt="logo"/></a>
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    {% include './parts/styles.njk' %}
-  
-    {% block head %}
-      <title>Foodfy - Admin</title>
-    {% endblock %}
-  </head>
+          <a name="drop" href="/admin/users/profile" class="nav-item">Minha conta</a>
 
-  <body>
-    {% include './parts/header.njk' %}
+          <div class="drop-menu">
+            <a name="drop" href="/admin/recipes" class="nav-item">Receitas</a>
+            <div class="drop-content">
+              <a href="/admin/recipes/create" class="nav-item">Criar</a>
+            </div>
+          </div>
 
-    {%block content%}{%endblock%}
-    
-    <script src="/script.js"></script>
-  </body>
-</html>
+          <div class="drop-menu">
+            <a name="drop" href="/admin/chefs" class="nav-item">Chefs</a>
+            <div class="drop-content">
+              <a href="/admin/chefs/create" class="nav-item">Criar</a>
+            </div>
+          </div>
+
+          <div class="drop-menu">
+            <a name="drop" href="/admin/users" class="nav-item">Usuários</a>
+            <div class="drop-content">
+              <a href="/admin/users/create" class="nav-item">Criar</a>
+            </div>
+          </div>
+        </div>
+
+        <form id="logout" method="POST" action="/admin/users/logout">
+          <a
+            class="nav-item"
+            onclick="document.getElementById('logout').submit()">
+            Sair
+          </a>
+        </form>
+      </nav>
+    </header>
+  </div>
+

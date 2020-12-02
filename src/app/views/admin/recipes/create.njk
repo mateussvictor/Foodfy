@@ -1,4 +1,4 @@
-{% extends '../layout.njk' %}
+{% extends "layout.njk" %}
 
 {% block content %}
     <form
@@ -9,9 +9,9 @@
       <section class="fields-container">
           <div class="create-recipe">
             <h3>Creating recipe</h3>
-            <button type="submit" form="form-create">Save recipe</button>
+            <button type="submit" form="form-create">Salvar</button>
           </div>
-          {% include '../parts/create-recipe.njk' %}
+          {% include 'parts/create-recipe.njk' %}
       </section>
     </form>
 {% endblock %}

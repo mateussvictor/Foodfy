@@ -3,25 +3,58 @@
 {%block content%}
   <section>
     <div class="show-recipe">
-      <h3>Recipe: {{ recipe.title }}</h3>
+      <h3>Receita: {{ recipe.title }}</h3>
       <a href="/recipes">Back</a>
     </div>
 
     <div class="img-container recipe">
-      <img src="{{ recipe.src }}" alt="Image of {{ recipe.title }}">
+      <div class="highlight">
+        {% if not recipe.files[0] %}
+          <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO">
+          {% else %}
+            <img 
+              src="{{ recipe.files[0].path }}"
+              alt="Image of {{ recipe.files[0].name }}"
+              onclick="Lightbox.open()"
+            >
+        {% endif %}
+
+        <div class="lightbox-target">
+          <img src="{{recipe.files[0].path}}" alt="{{recipe.files[0].name}}">
+          <a
+            href="#"
+            class="lightbox-close"
+            onclick='Lightbox.close()''
+          >
+            <i class="material-icons">close</i>
+          </a>
+        </div>
+      </div>
+
+      <div class=gallery-preview>
+        {% for image in recipe.files %}
+          <img 
+            src="{{image.path}}"
+            alt="{{image.name}}"
+            {% if loop.index0 == 0 %} class='active' {% endif %}
+            onclick='ImageGallery.setImage(event)'>
+        {% endfor %}
+      </div>
     </div>
   </section>
 
   <section class="recipe-infos">
     <div class="title">
       <h2>{{ recipe.title }}</h2>
-     <a href="/chefs/{{ recipe.chef_id }}">by {{ recipe.chef_name }}</a>
+      <div>
+      <a href="/chefs/{{ recipe.chef_id }}">por {{ recipe.chef_name }}</a>
+     </div>
     </div>
 
     <div class="recipe-contents ingredients">
       <div class="ingredients">
-        <h3>Ingredients</h3>
-        <a class="card-hide">hide</a>
+        <h3>Ingredientes</h3>
+        <a class="card-hide" onclick="buttonActions.toggleButton(event)">esconder</a>
       </div>
 
       <div>
@@ -35,8 +68,8 @@
 
     <div class="recipe-contents preparation">
       <div class="preparation">
-        <h3>Preparation</h3>
-        <a class="card-hide">show</a>
+        <h3>Preparação</h3>
+        <a class="card-hide">esconder</a>
       </div>
 
       <div>
@@ -49,8 +82,8 @@
     </div>
 
     <div class="recipe-contents information">
-      <h3>Additional Information</h3>
-      <a class="card-hide">hide</a>
+      <h3>Informações adicionais</h3>
+      <a class="card-hide">esconder</a>
       <p class="recipe-steps text">{{ recipe.information }}</p>
     </div>
   </section>

@@ -3,11 +3,11 @@
 {% block content %}
   <section id="recipes">
     <div id="cards">
-      {% for recipe in items %}
+      {% for recipe in recipes %}
         <a class="recipe-card" href="/recipes/{{ recipe.id }}">
-          <img src="{{ recipe.src }}" alt="Image of {{ recipe.title }}"/>
+          <img src="{{ recipe.file.path}}" alt="Image of {{ recipe.title }}"/>
           <h3 class="recipe-title">{{ recipe.title }}</h3>
-          <p class="author"> by {{ recipe.chef_name }}{{ recipe.author}}</p>
+          <p class="author">by {{ recipe.chef_name }}</p>
         </a>
       {% endfor %}
     </div>
@@ -16,6 +16,6 @@
   <div class="pagination"
     data-page= "{{ pagination.page }}"
     data-total="{{ pagination.total }}"
-    data-filter="{{ filter}}">
+    data-filter="{{ filter }}">
   </div>
 {% endblock %}

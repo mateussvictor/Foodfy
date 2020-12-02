@@ -1,0 +1,31 @@
+{% extends './layout.njk' %}
+
+{%block content%}
+  <section>
+    <div class="show-chef">
+      <h3>Chef: {{ chef.name }}</h3>
+      <a href="/chefs">Back</a>
+    </div>
+
+    <div class="img-container chef">
+      <img src="{{ chef.file.path  }}" alt="Image of {{ chef.name }}">
+    </div>
+  </section>
+
+  <section class="chef-infos">
+    <div class="title">
+      <h2>{{ chef.name }}</h2>
+      <p>
+        {% if chef.total_recipes > 1 %}{{chef.total_recipes}} receitas cadastradas{% endif %}
+        {% if chef.total_recipes == 0 %}Nenhuma receita cadastrada{% endif %}
+        {% if chef.total_recipes == 1 %}{{chef.total_recipes}} receita cadastrada{% endif %}
+      </p>
+    </div>
+
+    <div>
+      <h3>Recipes</h3>
+    </div>
+  </section>
+
+ {% include 'parts/recipes-list.njk' %}
+{%endblock%}

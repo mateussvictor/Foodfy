@@ -1,0 +1,33 @@
+<div class="create-container">
+  <div>
+    <p>Name</p>
+    <input
+      type="text"
+      name="name"
+      value="{{ user.name }}"
+    >
+  </div>
+
+  <div>
+    <p>Email</p>
+    <input
+      type="email"
+      name="email"
+      value="{{ user.email }}"
+      onblur="Validate.apply(this, 'isEmail')"
+    >
+  </div>
+
+  <div>
+    <p>
+      <input 
+        type="checkbox"
+        name="is_admin"
+        value="1"
+        {% if user.is_admin == true %}checked{% endif %}
+      >
+    Administrator</p>
+  </div>
+</div>
+
+

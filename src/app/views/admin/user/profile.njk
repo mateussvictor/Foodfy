@@ -1,0 +1,39 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+  <form method="POST" action="/admin/users/profile?_method=PUT">
+    <div class="users-header">
+      <h3>Bem-vindo(a), {{ user.name }}!</h3>
+      <button type="submit">Salvar</button>
+    </div>
+    
+    <section class="fields-container">
+      <div class="create-container">
+        <div>
+          <p>Name</p>
+          <input
+            type="text"
+            name="name"
+            value="{{ user.name }}"
+          >
+        </div>
+
+        <div>
+          <p>Email</p>
+          <input
+            type="text"
+            name="email"
+            value="{{ user.email }}"
+            onblur="Validate.apply(this, 'isEmail')"
+          >
+        </div>
+
+        <div>
+          <p>Password</p>
+          <input type="password" name="password" placeholder="Digite sua senha" required>
+        </div>
+      </div>
+      <input type="hidden" name="id" value="{{user.id}}">
+    </section>
+  </form>
+  {% endblock %}

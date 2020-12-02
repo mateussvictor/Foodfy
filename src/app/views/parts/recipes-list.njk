@@ -1,0 +1,23 @@
+<section id="recipes-container">
+    {% for recipe in recipes %}
+      <div id="recipe-card">
+        <a href="/admin/recipes/{{ recipe.id }}">
+          <div>
+            <img src="{{ recipe.file.path }}" alt="Image of {{ recipe.title }}"/>
+          </div>
+
+          <div>
+            <h3 class="recipe-title">{{ recipe.title }}</h3>
+            <p class="author">by {{ recipe.chef_name }}{{ recipe.author }}</p>
+            <a href="/admin/recipes/{{ recipe.id }}">Visualizar</a>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </section>
+
+  <div class="pagination"
+    data-page= "{{ pagination.page }}"
+    data-total="{{ pagination.total }}"
+    data-filter="{{ filter}}">
+  </div>

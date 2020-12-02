@@ -1,0 +1,36 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+  <section class="fields-container">
+    <div class="edit-user">
+      <h3>Alterar usuário "{{user.name}}"</h3>
+      <div>
+        <button 
+          class="delete-btn"
+          type="submit"
+          onclick="confirmation()"
+          form="form-delete">Deletar
+        </button>
+        <button type="submit" form="form-save">Salvar</button>
+      </div>
+    </div>
+
+      <form
+        id="form-delete"
+        method="post"
+        action="/admin/users?_method=DELETE"
+      >
+      <input type="hidden" name="id" value="{{ user.id }}">   
+    </form>
+    
+    <form
+      id="form-save"
+      method="POST"
+      action="/admin/users?_method=PUT"
+    >
+      <input type="hidden" name="id" value="{{ user.id }}">
+      {% include 'parts/create-user.njk' %}
+    </form>
+  </section>
+{% endblock %}

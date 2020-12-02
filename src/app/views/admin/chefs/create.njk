@@ -1,18 +1,18 @@
-{% extends '../layout.njk' %}
+{% extends 'layout.njk' %}
 
 {% block content %}
-    <form
-      id="form-create"
-      action="/admin/chefs"
-      enctype="multipart/form-data"
-      method="POST"
-    >
-      <section class="fields-container">
-          <div class="create-chef">
-            <h3>Creating chef</h3>
-            <button type="submit" form="form-create">Save chef</button>
-          </div>
-        {% include '../parts/create-chef.njk' %}
-      </section>
+  <form
+    id="form-create"
+    action="/admin/chefs"
+    enctype="multipart/form-data"
+    method="POST"
+  >
+    <section class="fields-container">
+        <div class="create-chef">
+          <h3>Criar chef</h3>
+          <button type="submit" form="form-create">Salvar</button>
+        </div>
+      {% include 'parts/create-chef.njk' %}
+    </section>
   </form>
 {% endblock %}

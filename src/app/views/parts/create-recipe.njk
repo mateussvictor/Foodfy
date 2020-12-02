@@ -1,0 +1,118 @@
+  <div class="item">
+    <p>Imagens da receita</p>
+
+    <div id="photos-preview">
+      <div id="photos-upload">
+        <input
+          id="photos-input"
+          type="file" 
+          name="photos" 
+          multiple
+          accept="image/*"
+          onchange="photosUpload.handleFileInput(event)"
+        >
+        <i class="material-icons">add</i>
+      </div>
+        
+      {% if recipe.files %}
+        {% for file in recipe.files %}
+            <div class="photo" id="{{file.id}}">
+              <img src="{{file.path}}" alt="{{file.name}}">
+              <i class="material-icons"
+                onclick="photosUpload.removeOldPhoto(event)"
+              >close</i>
+            </div>
+        {%endfor%}
+        <input type="hidden" name="removed_files">
+      {%endif%}
+    </div>
+  </div>
+
+   <div>
+    <p>Título da receita</p>
+    <input type="text" name="title" value="{{ recipe.title }}" required="required">
+  </div>
+  
+
+  <div>
+    <p>Selecione o chef</p> 
+    <select name="chef_id">
+      {% for chef in chefsList %}
+        <option
+          value="{{ chef.id }}"
+          {% if recipe.chef_id == chef.id %} selected {%endif%}
+        >{{ chef.name }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+ 
+  <div>
+    <p>Ingredientes</p>
+    <div class="field-container">
+      {% if recipe.id %}
+      {% for ingredient in recipe.ingredients %}
+        <div class="create-field">
+          <input
+            type="text"
+            name="ingredients[]"
+            value="{{ingredient}}"
+            required="required"
+          >
+          <span onclick="addFields.remove(event)"><i class="material-icons">close</i></span>
+        </div>
+      {% endfor %}
+      {% else %}
+        <div class="create-field">
+          <input
+            type="text"
+            name="ingredients[]"
+            value="{{ingredient}}"
+            required="required"
+            placeholder="Adicionar ingrediente">
+          <span onclick="addFields.remove(event)"><i class="material-icons">close</i></span>
+        </div>
+      {% endif %}
+    </div>
+    <a class="add-ingredient" onclick='addFields.add(event)'>Adicionar ingrediente</a>
+  </div>
+
+
+  <div>
+    <p>Preparação</p>
+    <div class="field-container">
+      {% if recipe.id %}
+      {% for preparation in recipe.preparation %}
+        <div class="create-field">
+          <input 
+            type="text" 
+            name="preparation[]" 
+            value="{{preparation}}"
+            required="required"  
+          >
+          <span onclick="addFields.remove(event)"><i class="material-icons">close</i></span>
+        </div>
+        {%endfor%}
+      {% else %}
+        <div class="create-field">
+          <input 
+            type="text" 
+            name="preparation[]"
+            value="{{preparation}}"
+            required="required"
+            placeholder="Adicionar etapa de preparação"
+          />
+          <span onclick="addFields.remove(event)"><i class="material-icons">close</i></span>
+        </div>
+      {% endif %}
+    </div>
+    <a class="add-step" onclick='addFields.add(event)'>Adicionar nova etapa de preparação</a>
+  </div>
+
+
+  <div>
+    <p>Informações adicionais</p>
+    <textarea name="information" rows="10">{{ recipe.information}}</textarea>
+  </div>
+  <input type="hidden" name="user_id" value="{{session.userId}}">

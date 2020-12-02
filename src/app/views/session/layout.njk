@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {% include 'parts/styles.njk' %}
+    {# <link rel="stylesheet" href="/styles/admin/session.css"> #}
+
+    {% block head %}
+      <title>Foodfy</title>
+    {% endblock %}
+  </head>
+
+  <body>
+    {% include 'parts/messages.njk' %}
+
+    <div class="session-header">
+      <header>
+        <nav>
+          <a href="/" class="logo session-logo"><img src="/assets/logo.png" alt="logo"/></a>
+        </nav>
+        </div>
+      </header>
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <script src="/script.js"></script>
+  </body>
+</html>
+
+

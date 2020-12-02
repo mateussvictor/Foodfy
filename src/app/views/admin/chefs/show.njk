@@ -1,50 +1,34 @@
-{% extends '../layout.njk' %}
+{% extends 'layout.njk' %}
 
 {%block content%}
 
   <section>
     <div class="show-chef">
       <h3>Chef: {{ chef.name }}</h3>
-      <a href=" /admin/chefs/{{ chef.id }}/edit">Edit chef</a>
+      <a href=" /admin/chefs/{{ chef.id }}/edit">Editar chef</a>
     </div>
   
     <div class="img-container chef">
-      <img src="{{ file.path }}" alt="Image of {{chef.name}}">
+      <img src="{{ chef.file.path }}" alt="Image of {{chef.name}}">
     </div>
   </section>
 
   <section class="chef-infos">
     <div class="title">
       <h2>{{chef.name}}</h2>
-      {% if chef.total_recipes <= 1 %}
-        <p>{{ chef.total_recipes }} recipe</p>
-        {% else %}
-        <p>{{ chef.total_recipes }} recipes</p>
-      {%endif%}
+        <p>
+          {% if chef.total_recipes > 1 %}{{chef.total_recipes}} receitas cadastradas{% endif %}
+          {% if chef.total_recipes == 0 %}Nenhuma receita cadastrada{% endif %}
+          {% if chef.total_recipes == 1 %}{{chef.total_recipes}} receita cadastrada{% endif %}
+        </p>
     </div>
     
     <div>
-      <h3>Recipes</h3>
+      <h3>Receitas</h3>
     </div>
   </section>
 
-  <section class="chef-recipes">
-    {% for recipe in recipes %}
-      <div class="recipe-card">
-        <a href="/admin/recipes/{{ recipe.id }}">
-        <div>
-          <img src="{{ recipe.src }}" alt="Image of {{ recipe.title }}"/>
-        </div>
-
-        <div>
-          <h3 class="recipe-title">{{ recipe.title }} Title</h3>
-          <p class="author">by {{ recipe.chef_name }}</p>
-          <a href="/admin/recipes/{{ recipe.id }}">Visualizar</a>
-        </div>
-        </a>
-      </div>
-    {% endfor %}
-  </section>
+ {% include 'parts/recipes-list.njk' %}
 
   <script src="/script.js"></script>
 

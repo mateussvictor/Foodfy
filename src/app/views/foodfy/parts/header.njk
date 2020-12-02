@@ -5,14 +5,17 @@
       <a href="/about" class="nav-item">About</a>
       <a href="/recipes" class="nav-item">Recipes</a>
       <a href="/chefs" class="nav-item">Chefs</a>
+      <a href="/admin/users/login" class="nav-item login-icon">
+        <i class="material-icons">account_circle</i>
+      </a>
     </nav>
 
     <div class="search-input">
-      <form action="/search" method="GET">
+      <form action="/recipes" method="GET">
         <input 
           type="text" 
           name="filter" 
-          placeholder="Search recipe"
+          placeholder="Buscar receita"
           value="{{ filter }}"
         >
         <button type="submit">Search</button>

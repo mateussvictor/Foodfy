@@ -6,18 +6,16 @@
       <div id="chef-card">
         <a href="/chefs/{{ chef.id }}">
           <div>
-            <img src="{{ chef.file_path }}" alt="Image of {{ chef.name }}"/>
+            <img src="{{ chef.file.path }}" alt="Image of {{ chef.name }}"/>
           </div>
 
           <div>
             <h3 class="recipe-title">{{ chef.name }}</h3>
-            {% if chef.total_recipes == 1 %}
-              <a href="/chefs/{{ chef.id }}">{{chef.total_recipes}} Recipe</a>
-              {% elif chef.total_recipes == 0 %}
-                <a href="/chefs/{{ chef.id }}">No recipes yet</a>
-              {% else %}
-                <a href="/chefs/{{ chef.id }}">{{chef.total_recipes}} Recipes</a>
-            {% endif %}
+              <a href="/chefs/{{ chef.id }}">
+                {% if chef.total_recipes > 1 %}{{chef.total_recipes}} receitas{% endif %}
+                {% if chef.total_recipes == 0 %}Nenhuma receita cadastrada{% endif %}
+                {% if chef.total_recipes == 1 %}{{chef.total_recipes}} receita{% endif %}
+              </a>    
           </div>
         </a>
       </div>

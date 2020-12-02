@@ -20,11 +20,18 @@
   <main id="recipes">
     <h2>Most accessed</h2>
     <div id="cards">
-      {% for item in items %}
-        <a class="recipe-card" href="/recipes/{{ item.id }}">
-          <img src="{{ item.src }}" alt="Image of {{ item.title }}"/>
-          <h3 class="recipe-title">{{ item.title }}</h3>
-          <p class="author">by {{ item.chef_name }} {{ item.author }}</p>
+      {% for recipe in recipes %}
+        <a class="recipe-card" href="/recipes/{{ recipe.id }}">
+        {% if not recipe.file  %}
+          <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO">
+          {% else %}
+        <img src="{{ recipe.file.path }}" alt="Image of {{ recipe.title }}"/>
+        {% endif %}
+        <h3 class="recipe-title">{{ recipe.title }}</h3>
+        <p>
+      {% if recipe.chef_name == null %}por Chef Anônimo{% endif %}
+      {% if recipe.chef_name != null %}por {{recipe.chef_name}}{% endif %}
+       </p>
         </a>
       {% endfor %}
     </div>
