@@ -1,3 +1,12 @@
+const currentPage = location.pathname
+const menuItems = document.querySelectorAll('.nav-item')
+
+for(item of menuItems) {
+  if(currentPage.includes(item.getAttribute('href'))) {
+    item.classList.add('active')
+  }
+}
+
 const cards = document.querySelectorAll('.recipe-card')
 const recipeContents = document.querySelectorAll('.recipe-contents')
 
@@ -6,103 +15,23 @@ for (info of recipeContents) {
   const recipeList = info.querySelector('.recipe-steps')
 
   hide.addEventListener('click', () => {
-    if (hide.innerHTML == 'hide') {
-      hide.innerHTML = 'show'
+    if (hide.innerHTML == 'esconder') {
+      hide.innerHTML = 'mostrar'
     } else {
-      hide.innerHTML = 'hide'
+      hide.innerHTML = 'esconder'
     }
     recipeList.classList.toggle('hide')
   })
 }
 
-function addIngredient() {
-
-  const ingredients = document.querySelector("#ingredients-container")
-  const fieldContainer = document.querySelectorAll(".ingredient")
-  const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true)
-
-  if (newField.children[0].value == "") return false
-
-  newField.children[0].value = ""
-  ingredients.appendChild(newField)
-}
-
-function addStep() {
-  const steps = document.querySelector("#steps-container")
-  const fieldContainer = document.querySelectorAll(".step")
-  const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true)
-
-  if (newField.children[0].value == "") return false
-  
-  newField.children[0].value = ""
-  steps.appendChild(newField)
-}
-
 function confirmation() {
-  const formDelete = document.querySelector("#form-delete")
-  formDelete.addEventListener("submit", (event) => {
-    const confirmation = confirm("Deseja apagar essa receita?")
-    if(!confirmation) event.preventDefault()
-  })
-}
-
-function paginate(selectedPage, totalPages) {
-  let pages = [],
-      oldPage
-
-  for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
-
-    const firstAndLastPage = currentPage == 1 || currentPage == totalPages
-    const pagesAfterSelectedPage = currentPage <= selectedPage + 2
-    const pagesBeforeSelectedPage = currentPage >= selectedPage - 2
-
-    if (firstAndLastPage || pagesBeforeSelectedPage && pagesAfterSelectedPage) {
-      if (oldPage && currentPage - oldPage > 2) {
-        pages.push('...')
-      }
-
-      if(oldPage && currentPage - oldPage == 2) {
-        pages.push(oldPage + 1)
-      }
-
-      pages.push(currentPage)
-
-      oldPage = currentPage
+  const formDelete = document.querySelectorAll("#form-delete")
+  formDelete.forEach(form => form.addEventListener("submit", function (event) {
+    const confirmation = confirm("Deseja deletar?")
+    if (!confirmation) {
+      event.preventDefault()
     }
-  }
-
-  return pages
-}
-
-function createPagination(pagination) {
-  const filter = pagination.dataset.filter
-  const page = +pagination.dataset.page
-  const total = +pagination.dataset.total
-
-  const pages = paginate(page, total)
-
-  let elements = ''
-
-  for (let page of pages) {
-    if(String(page).includes('...')) {
-      elements += `<span>${page}</span>`
-    } else {
-      if(filter) {
-        elements += `<a href="?page=${page}&filter=${filter}">${page}</a>`
-
-      } else {
-        elements += `<a href="?page=${page}">${page}</a>`
-      }
-    }
-  }
-
-  pagination.innerHTML = elements
-}
-
-const pagination = document.querySelector('.pagination')
-
-if(pagination) {
-  createPagination(pagination)
+  }))
 }
 
 const photosUpload = {
@@ -321,3 +250,108 @@ const avatarUpload = {
   }
 }
 
+const Validate = {
+  apply(input, func) {
+    Validate.clearError(input)
+
+    let results = Validate[func](input.value)
+    input.value = results.value
+
+    if(results.error)
+      Validate.displayError(input, results.error)
+  },
+
+  displayError(input, error) {
+    const div = document.createElement('p')
+    div.classList.add('error')
+    div.innerHTML = error
+    input.parentNode.appendChild(div)
+    
+  },
+
+  clearError(input) {
+    const errorDiv = input.parentNode.querySelector('.error')
+    if(errorDiv)
+      errorDiv.remove()
+  },
+
+  isEmail(value) {
+    let error = null
+    const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+      
+    if(!value.match(mailFormat))
+      error = 'Email inválido'
+
+    return {
+      error,
+      value
+    }
+  }
+}
+
+const ImageGallery = {
+  highlight: document.querySelector('.img-container .highlight > img'),
+  previews: document.querySelectorAll('.gallery-preview img'),
+  
+  setImage(e) {
+    const { target } = e
+    ImageGallery.previews.forEach(preview => preview.classList.remove('active'))
+    target.classList.add('active')
+
+    ImageGallery.highlight.src = target.src
+    Lightbox.image.src = target.src
+  }
+}
+
+const Lightbox = {
+  target: document.querySelector('.highlight .lightbox-target'),
+  image: document.querySelector('.highlight .lightbox-target img'),
+  closeButton: document.querySelector('.lightbox-target a.lightbox-close'),
+
+  open() {
+    Lightbox.target.style.opacity = 1
+    Lightbox.target.style.top = 0
+    Lightbox.target.style.bottom = 0
+    Lightbox.closeButton.style.top = 0
+  },
+  close() {
+    Lightbox.target.style.opacity = 0
+    Lightbox.target.style.top = "-100%"
+    Lightbox.target.style.bottom = 'initial'
+    Lightbox.closeButton.style.top = "-80px"
+  }
+}
+
+const addFields = {
+  input: "",
+  parent: "",
+  container: "",
+
+  add(event) {
+    addFields.input = event.target
+    addFields.parent = addFields.input.parentElement
+    addFields.container = addFields.parent.querySelector('.field-container').lastElementChild
+
+    const newField = addFields.container.cloneNode(true)
+
+    if (newField.children[0].value === '') return;
+
+    newField.children[0].value = '';
+    addFields.parent.querySelector('.field-container').appendChild(newField);
+  },
+  remove(event) {
+    addFields.input = event.target
+    addFields.parent = addFields.input.parentElement.parentElement
+
+    console.log(addFields.parent.parentElement.children);
+    
+
+    if (addFields.parent.parentElement.children.length > 1) {
+      if (addFields.parent.querySelector('input').value == "") {
+        addFields.parent.parentElement.removeChild(addFields.parent)
+      } else {
+        addFields.parent.parentElement.removeChild(addFields.parent)
+      }
+    }
+  }
+}

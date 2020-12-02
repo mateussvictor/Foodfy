@@ -1,138 +1,100 @@
 const db = require('../../config/db')
-const { date } = require('../../../lib/utils')
+const fs = require('fs')
+
+const Base = require('../Base')
+
+Base.init({ table: 'recipes' })
 
 
 module.exports = {
+  ...Base,
 
-  create(data) {
-    const query = `
-      INSERT INTO recipes (
-        chef_id,
-        title,
-        ingredients,
-        preparation,
-        information,
-        created_at
-      ) VALUES ($1, $2, $3, $4, $5, $6)
-      RETURNING id
-    `
-
-    const values = [
-      data.chef_id,
-      data.title,
-      data.ingredients,
-      data.preparation,
-      data.information,
-      date(Date.now()).iso,
-    ]
-
+  async findAll() {
     try {
-      return db.query(query, values)
-    } catch (err) {
-      throw new Error(err)
-    }
-  },
-
-  find(id) {
-    try {
-      return db.query(`
-        SELECT recipes.*, chefs.name AS chef_name 
+      const query = `
+        SELECT recipes.*, chefs.name AS chef_name
         FROM recipes
         LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-        WHERE recipes.id = $1`,
-        [id]
-      )
-    } catch (error) {
-      throw new Error(err)
-    }
-  },
+        ORDER BY updated_at DESC`
 
-  update(data) {
-    const query = `
-      UPDATE recipes SET
-        chef_id=($1),
-        title=($2),
-        ingredients=($3),
-        preparation=($4),
-        information=($5)
-      WHERE id = $6
-    `
+      const results = await db.query(query)
 
-    const values = [
-      data.chef_id,
-      data.title,
-      data.ingredients,
-      data.preparation,
-      data.information,
-      data.id
-    ]
+      return results.rows
 
-    try {
-      db.query(query, values)
     } catch (err) {
-      throw new Error(err)
+      console.error(err)
     }
   },
 
-  delete(id) {
+  async findOne(id) {
     try {
-     return db.query(`
-      DELETE FROM recipes where id = $1`,
-      [id]
-    )
+      const results = await db.query(`
+        SELECT recipes.*, chefs.name AS chef_name
+        FROM recipes
+        LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+        WHERE recipes.id=$1`,
+        [id])
+
+      return results.rows[0]
+
     } catch (err) {
-      throw new Error(err)
+      console.error(err)
     }
   },
 
-  chefSelectOptions() {
+  async files(id) {
     try {
-      return db.query(`SELECT name, id FROM chefs`)
+      const results = await db.query(`
+        SELECT files.*, recipe_id, file_id
+        FROM files
+        LEFT JOIN recipe_files ON (files.id = recipe_files.file_id)
+        WHERE recipe_files.recipe_id = $1`,
+        [id])
+
+      return results.rows
+
     } catch (err) {
-      throw new Error(err)
+      console.error(err)
     }
   },
 
-  files(id) {
-    return db.query(`
-      SELECT * FROM recipe_files
-      WHERE recipe_id = $1`,
-      [id]
-    )
+  async delete(id) {
+    try {
+      const results = await db.query(`
+        SELECT files.*, recipe_id, file_id
+        FROM files
+        LEFT JOIN recipe_files ON (files.id = recipe_files.file_id)
+        WHERE recipe_files.recipe_id = $1`, 
+        [id])
+
+      const files = results.rows
+
+      await db.query(`DELETE FROM recipes WHERE id = $1`, [id])
+
+      files.map(async file => {fs.unlinkSync(`public/${file.path}`)
+        await db.query(`DELETE FROM files WHERE id = $1`, [file.id])
+      })
+
+      return
+
+    } catch (err) {
+      console.error(err)
+    }
   },
 
-  async paginate(params) {
-    const { filter, limit, offset } = params
-
-    let query = "",
-        filterQuery = "",
-        totalQuery = `(
-          SELECT count(*) FROM recipes
-        ) AS total`
-        
-    if (filter) {
-      filterQuery = `
+  async findBy(filter) {
+    try {
+      const results = await db.query(`
+        SELECT recipes.*, chefs.name AS chef_name
+        FROM recipes
+        LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
         WHERE recipes.title ILIKE '%${filter}%'
-        `
+        ORDER BY updated_at DESC`)
 
-      totalQuery = `(
-        SELECT count(*) FROM recipes
-        ${filterQuery}
-      ) AS total`
-    }
-        
-    query = `
-      SELECT recipes.*, ${totalQuery}, chefs.name AS chef_name
-      FROM recipes
-      LEFT JOIN chefs on (recipes.chef_id = chefs.id)
-      ${filterQuery}
-      ORDER BY created_at DESC
-      LIMIT $1 OFFSET $2`
-    
-    try {
-      return db.query(query, [limit, offset]) 
+      return results.rows
+
     } catch (err) {
-      throw new Error(err)
+      console.error(err)
     }
-  }
+  },
 }

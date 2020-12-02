@@ -1,145 +1,83 @@
 const db = require('../../config/db')
-const { date } = require('../../../lib/utils')
+
+const Base = require('../Base')
+
+Base.init({ table: 'chefs'})
 
 
 module.exports = {
-  create(data, fileId) {
-    const query = `
-      INSERT INTO chefs (
-        name,
-        file_id,
-        created_at
-      ) VALUES ($1, $2, $3)
-      RETURNING id
-    `
+  ...Base,
 
-    const values = [
-      data.name,
-      fileId,
-      date(Date.now()).iso,
-    ]
-
+  async findAll() {
     try {
-      return db.query(query, values)
+      const results = await db.query(`
+        SELECT chefs.*, count(recipes) as total_recipes, files.path as file
+        FROM chefs
+        LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
+        LEFT JOIN files ON (chefs.file_id = files.id)
+        GROUP BY chefs.id, files.id`
+      )
+
+      return results.rows
+
     } catch (err) {
-      throw new Error(err)
+      console.error(err)
     }
   },
 
-  find(id) {
+  async findOne(id) {
     try {
-      return db.query(`
+      const results = await db.query(`
         SELECT chefs.*, count(recipes) AS total_recipes
         FROM chefs
         LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
         WHERE chefs.id = $1
         GROUP BY chefs.id`,
-        [id]
-      )
+        [id])
+
+      return results.rows[0]
+
     } catch (err) {
-      throw new Error(err)
+      console.error(err)
     }
   },
 
-  update(data, fileId) {
-    if(fileId) {
-      const query = `
-        UPDATE chefs SET
-          name=($1),
-          file_id=($2)
-        WHERE id = $3
-      `
-
-      const values = [
-        data.name,
-        fileId,
-        data.id,
-      ]
-
-      return db.query(query, values)
-
-    } else {
-      const query = `
-        UPDATE chefs SET
-        name = ($1)
-        WHERE id = $2
-      `
-
-      const values = [
-          data.name,
-          data.id
-      ]
-
-      return db.query(query, values)
-    }
-
-  },
-
-  delete(id) {
+  async delete(id) {
     try {
-      db.query(`
-        DELETE FROM chefs where id = $1`,
-        [id]
-      )
+      await db.query(`DELETE FROM chefs WHERE id = $1`, [id])
+
+      const results = await db.query(`
+        SELECT files.*
+        FROM files
+        LEFT JOIN chefs ON (files.id = chefs.file_id)
+        WHERE chefs.id = $1`,
+        [id])
+
+      const files = results.rows
+
+      files.map(async file => {
+        fs.unlinkSync(`public/${file.path}`)
+        await db.query(`DELETE FROM files WHERE id = $1`, [file.id])
+      })
+
     } catch (err) {
-      throw new Error(err)
+      console.error(err)
     }
   },
 
-  findRecipes(id) {
+  async files(id) {
     try {
-      return db.query(`
-        SELECT recipes.*, chefs.name AS chef_name
-        FROM recipes
-        LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-        WHERE chef_id = $1`,
-        [id]
-      )
+      const results = await db.query(`
+      SELECT files.*
+      FROM files
+      LEFT JOIN chefs ON (files.id = chefs.file_id)
+      WHERE chefs.id = $1`,
+      [id])
+
+      return results.rows
+
     } catch (err) {
-      throw new Error(err)
-    }
-  },
-
-  file(id) {
-    return db.query(`
-      SELECT * FROM files WHERE id = $1`,
-      [id]
-    )
-},
-
-  async paginate(params) {
-    const { filter, limit, offset } = params
-
-    let query = "",
-      filterQuery = "",
-      totalQuery = `(
-        SELECT count(*) FROM chefs
-      ) AS total`
-
-    if (filter) {
-      filterQuery = `
-        WHERE chefs.name ILIKE '%${filter}%'
-      `
-
-      totalQuery = `(
-        SELECT count(*) FROM chefs
-        ${filterQuery}
-      ) AS total`
-    }
-
-    query = `
-      SELECT chefs.*, ${totalQuery}, count(recipes) as total_recipes
-      FROM chefs
-      LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
-      ${filterQuery}
-      GROUP BY chefs.id
-      LIMIT $1 OFFSET $2
-    `
-
-    try {
-      return db.query(query, [limit, offset]) 
-    } catch (err) {
-      throw new Error(err)
+      console.error(err)
     }
   },
 }
