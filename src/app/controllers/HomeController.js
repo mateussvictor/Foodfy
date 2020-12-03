@@ -16,8 +16,8 @@ module.exports = {
     try {
       let recipes = await Recipe.findAll()
 
-      async function getImage(productId) {
-        let results = await Recipe.files(productId)
+      async function getImage(recipeId) {
+        let results = await Recipe.files(recipeId)
 
         return results[0]
       }
@@ -69,8 +69,8 @@ module.exports = {
       if (filter) {
         let searchResults = await Recipe.findBy(filter)
 
-        async function getImage(productId) {
-          let results = await Recipe.files(productId)
+        async function getImage(recipeId) {
+          let results = await Recipe.files(recipeId)
 
           return results[0]
         }
@@ -88,12 +88,12 @@ module.exports = {
           recipes: recipesList,
           filter
         })
-
+        
       } else {
         let recipes = await Recipe.findAll()
 
-        async function getImage(productId) {
-          let results = await Recipe.files(productId)
+        async function getImage(recipeId) {
+          let results = await Recipe.files(recipeId)
 
           return results[0]
         }
