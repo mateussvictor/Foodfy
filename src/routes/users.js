@@ -3,22 +3,16 @@ const routes = express.Router()
 
 const SessionController = require('../app/controllers/SessionController')
 const UserController = require('../app/controllers/admin/UserController')
-const ProfileController = require('../app/controllers/admin/ProfileController')
 
 const UserValidator = require('../app/validators/user')
 const SessionValidator = require("../app/validators/session")
 const FieldsValidator = require('../app/validators/fields')
-const ProfileValidator = require('../app/validators/profile')
 
 const {
-  onlyUsers,
   isAdmin,
   isLoggedRedirectToProfile,
 } = require("../app/middlewares/session")
 
-
-routes.get('/profile', onlyUsers, ProfileValidator.show, ProfileController.index)
-routes.put('/profile', onlyUsers, ProfileValidator.update, ProfileController.update)
 
 routes.get('/login', isLoggedRedirectToProfile, SessionController.loginForm)
 routes.post('/login', SessionValidator.login, SessionController.login)

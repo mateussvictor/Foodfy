@@ -41,6 +41,42 @@ span {
 
 /* INDEX CHEFS */
 
+.chefs-header{
+  max-width: 94rem;
+  margin: 6.5vh auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chefs-header a {
+  width: 13.9rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chefs-header a:hover{
+  background-color: var(--primary-hover-color);
+  transition: ease-in-out 150ms;
+}
+
+header .is-admin {
+  color: WHITE;
+  font-size: 1.4rem;
+  padding: 0.8rem 0.8rem;
+  border-radius: 0.4rem;
+  background-color: var(--primary-color);
+}
+
 #chefs-container {
   max-width: 94rem;
   margin: 5vh auto;

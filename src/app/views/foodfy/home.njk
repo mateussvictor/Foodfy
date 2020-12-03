@@ -3,12 +3,12 @@
 {% block content %}
   <section class="container">
     <div class="container-txt">
-      <h1>The best recipes</h1>
-      <p>Learn how to build the best dishes
+      <h1>As melhores receitas</h1>
+      <p>Saiba como construir os melhores pratos
         <br/>
-        with recipes created by professionals
+        com receitas criadas por profissionais
         <br/>
-        from around the world.
+        de todo o mundo.
       </p>
     </div>
 
@@ -18,7 +18,7 @@
   </section>
 
   <main id="recipes">
-    <h2>Most accessed</h2>
+    <h2>Mais acessadas</h2>
     <div id="cards">
       {% for recipe in recipes %}
         <a class="recipe-card" href="/recipes/{{ recipe.id }}">

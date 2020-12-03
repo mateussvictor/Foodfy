@@ -37,7 +37,7 @@ h3 {
 
 h2,
 span {
-  margin: 5.0rem auto 0.8rem auto;
+  margin: 4.0rem auto 0.8rem auto;
   font-size: 2.4rem;
   line-height: 2.8rem;
   color: #111111;
@@ -46,6 +46,33 @@ span {
 }
 
 /* INDEX RECIPES */
+.recipes-header{
+  max-width: 94rem;
+  margin: 6.5vh auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipes-header a {
+  width: 13.9rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipes-header a:hover{
+  background-color: var(--primary-hover-color);
+  transition: ease-in-out 150ms;
+}
 
 #recipes-container {
   max-width: 94rem;
@@ -103,6 +130,10 @@ span {
 #recipes-container #recipe-card div a:hover {
   color: var(--primary-hover-color);
   transition: ease-in-out 150ms;
+}
+
+.recipe-contents a:hover {
+  color: var(--primary-hover-color);
 }
 
 /* CREATE RECIPE */
@@ -476,28 +507,6 @@ form .item #photos-preview img {
 
 #photos-preview .photo:hover i {
   opacity: 1;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 6.4rem;
-}
-
-.pagination a,
-.pagination span {
-  margin: 0 1.2rem;
-  font-weight: bold;
-  font-size: 1.8rem;
-  filter: brightness(0.8);
-  color: var(--primary-color);
-}
-
-.pagination a:hover{
-  transition: 350ms;
-  font-weight: bold;
-  filter: brightness(0.4);
-  border-bottom: 1px solid var(--primary-color);
 }
 
 .img-container .highlight > img {

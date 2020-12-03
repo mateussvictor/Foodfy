@@ -27,8 +27,7 @@ header nav div:first-child{
   width: 56rem;
 }
 
-header nav a,
-header nav p {
+header nav a{
   font-weight: bold;
   font-size: 14px;
   line-height: 18px;

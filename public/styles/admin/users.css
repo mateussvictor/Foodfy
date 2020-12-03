@@ -23,7 +23,8 @@
   justify-content: center;
 }
 
-.users-header a:hover {
+.users-header a:hover,
+.users-header button:hover {
   background-color: var(--primary-hover-color);
   transition: ease-in-out 150ms;
 }
@@ -76,12 +77,10 @@
   transition: ease-in-out 150ms;
 }
 
-.user-card #form-delete {
+.user-card .form-delete {
   display: inline-block;
-  margin-left: 1.6rem;
+  margin-left: 3.2rem;
 }
-
-
 
 .user-card a + a:hover{
   color: var(--delete-hover-color);

@@ -1,7 +1,10 @@
 {% extends 'layout.njk' %}
 
   {%block content%}
-    <h2>Gerenciar chefs</h2>
+    <div class=chefs-header>
+      <h3>Gerenciar chefs</h3>
+      <a href="/admin/chefs/create">Novo</a>
+    </div>
 
     <section id="chefs-container">
       {% for chef in chefs %}

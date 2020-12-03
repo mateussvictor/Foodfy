@@ -2,12 +2,12 @@
 
 {% block content %}
 
-    <div class="users-header">
-      <h3>Usuários</h3>
-      <a href="/admin/users/create">Novo</a>
-    </div>
+  <div class="users-header">
+    <h3>Usuários</h3>
+    <a href="/admin/users/create">Novo</a>
+  </div>
 
-    <section class="users-container">
+  <section class="users-container">
     {% for user in users %}
       <div class="user-card">
         <div>
@@ -16,7 +16,7 @@
         
           <a href="/admin/users/{{user.id}}">Editar</a>
           <form
-            id="form-delete"
+            class="form-delete"
             method="POST"
             action="/admin/users?_method=DELETE"
           >
@@ -26,14 +26,5 @@
         </div>
       </div> 
     {% endfor %}
-    </section>
-    <script>
-      const formDelete = document.querySelectorAll("#form-delete")
-      formDelete.forEach(form => form.addEventListener("submit", function (event) {
-        const confirmation = confirm("Deseja deletar?")
-        if (!confirmation) {
-          event.preventDefault()
-        }
-      }))
-    </script>
+  </section>
 {% endblock %}

@@ -9,18 +9,17 @@
         <button 
           class="delete-btn"
           type="submit"
-          onclick="confirmation()"
           form="form-delete">Deletar
         </button>
         <button type="submit" form="form-save">Salvar</button>
       </div>
     </div>
 
-      <form
-        id="form-delete"
-        method="post"
-        action="/admin/users?_method=DELETE"
-      >
+    <form
+      id="form-delete"
+      method="post"
+      action="/admin/users?_method=DELETE"
+    >
       <input type="hidden" name="id" value="{{ user.id }}">   
     </form>
     

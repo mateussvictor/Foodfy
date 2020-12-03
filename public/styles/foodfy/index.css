@@ -16,9 +16,8 @@ body {
   font-size: 1.6rem;
   color: #111111;
   margin: 0 auto;
-  height: 100%;
   position: relative;
-  padding-bottom: 8%;
+  padding-bottom: 4%;
 }
 
 a {
@@ -103,9 +102,7 @@ header input {
   width: 94rem;
   height: 36.6rem;
   border-radius: 1.6rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 4.5rem;
+  margin: 4.8rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   box-shadow: 0 4px 8px 0 rgb(172, 172, 172), 0 6px 10px 0 rgb(172, 172, 172);

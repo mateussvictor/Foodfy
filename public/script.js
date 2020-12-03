@@ -24,16 +24,6 @@ for (info of recipeContents) {
   })
 }
 
-function confirmation() {
-  const formDelete = document.querySelectorAll("#form-delete")
-  formDelete.forEach(form => form.addEventListener("submit", function (event) {
-    const confirmation = confirm("Deseja deletar?")
-    if (!confirmation) {
-      event.preventDefault()
-    }
-  }))
-}
-
 const photosUpload = {
   input: '',
   preview: document.querySelector('#photos-preview'),
@@ -334,16 +324,16 @@ const addFields = {
 
     const newField = addFields.container.cloneNode(true)
 
-    if (newField.children[0].value === '') return;
+    if (newField.children[0].value === '') return
 
-    newField.children[0].value = '';
-    addFields.parent.querySelector('.field-container').appendChild(newField);
+    newField.children[0].value = ''
+    addFields.parent.querySelector('.field-container').appendChild(newField)
   },
   remove(event) {
     addFields.input = event.target
     addFields.parent = addFields.input.parentElement.parentElement
 
-    console.log(addFields.parent.parentElement.children);
+    console.log(addFields.parent.parentElement.children)
     
 
     if (addFields.parent.parentElement.children.length > 1) {
@@ -355,3 +345,27 @@ const addFields = {
     }
   }
 }
+
+
+function confirmDelete(formDelete) {
+  formDelete.addEventListener('submit', event => {
+    const totalRecipes = document.querySelector('.total-recipes')
+    const confirmation = confirm('Tem certeza que deseja deletar? Essa operação não poderá ser desfeita!')
+    if (!confirmation) event.preventDefault()
+
+    
+    if (totalRecipes) {
+      const total = +totalRecipes.dataset.total
+      if (total) {
+        event.preventDefault()
+        alert('Não é possivel deletar chefs que possuem receitas!')
+      }
+    }
+  })
+}
+
+const formDelete = document.querySelector('#form-delete')
+if (formDelete) confirmDelete(formDelete)
+
+const usersFormDelete = document.querySelectorAll('.form-delete')
+usersFormDelete.forEach(form => confirmDelete(form))

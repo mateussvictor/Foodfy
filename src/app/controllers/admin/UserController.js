@@ -104,8 +104,9 @@ module.exports = {
 
       user = {
         ...user,
-        firstName: user.name.split(" ")[0]
+        firstName: user.name.split(" ")[0],
       }
+
 
       return res.render('admin/user/edit.njk', {
         user

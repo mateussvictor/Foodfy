@@ -10,6 +10,7 @@
     </div>
   
     <form id="form-delete" method="post" action="/admin/chefs?_method=DELETE">
+      <div class="total-recipes" data-total={{chef.total_recipes}}></div>
       <input type="hidden" name="id" value="{{ chef.id }}">   
     </form>
     
@@ -22,16 +23,5 @@
       <input type="hidden" name="id" value="{{ chef.id }}">
      {% include 'parts/create-chef.njk' %}
     </form>
-
-    <script>
-      const formDelete = document.querySelector("#form-delete")
-        formDelete.addEventListener("submit", function(event){
-          const confirmation = confirm("Deseja apagar essa receita?");
-
-          if(!confirmation){
-            event.preventDefault()
-          }
-        })
-    </script>  
   </section>
 {% endblock %}

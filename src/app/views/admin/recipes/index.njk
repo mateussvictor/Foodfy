@@ -1,7 +1,10 @@
 {% extends 'layout.njk' %}
 
 {%block content%}
-  <h2>Gerenciar receitas</h2>
+  <div class="recipes-header">
+    <h3>Gerenciar receitas</h2>
+    <a href="/admin/recipes/create">Nova receita</a>
+  </div>
 
   {% include 'parts/recipes-list.njk' %}
 

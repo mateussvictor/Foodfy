@@ -7,11 +7,16 @@
 
 #chefs-container {
   max-width: 94rem;
-  min-height: 100vh;
   margin: 4vh auto;
-  display: grid;
+  height: 66vh;
+  position: relative;
+}
+
+.cards-container {
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
   gap: 3.2rem;
+  row-gap: 5.6rem;
   position: relative;
 }
 

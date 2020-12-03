@@ -27,7 +27,7 @@ module.exports = {
         recipe.file = await getImage(recipe.id)
 
         return recipe
-      }).filter((recipe, index) => index > 2 ? false : true)
+      }).filter((recipe, index) => index > 5 ? false : true)
 
       const recipesList = await Promise.all(recipesPromise)
 
@@ -84,7 +84,7 @@ module.exports = {
 
         const recipesList = await Promise.all(recipesPromise)
 
-        return res.render('foodfy/recipes', {
+        return res.render('foodfy/search', {
           recipes: recipesList,
           filter
         })

@@ -2,6 +2,7 @@
 
 {% block content%}
   <section id="chefs-container">
+    <div class= "cards-container">
     {% for chef in chefs %}
       <div id="chef-card">
         <a href="/chefs/{{ chef.id }}">
@@ -20,11 +21,6 @@
         </a>
       </div>
     {% endfor %}
+    </div>
   </section>
-
-  <div class="pagination"
-    data-page= "{{ pagination.page }}"
-    data-total="{{ pagination.total }}"
-    data-filter="{{ filter}}">
-  </div>
 {% endblock %}

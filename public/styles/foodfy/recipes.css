@@ -7,9 +7,9 @@
 
 #recipes {
   max-width: 94rem;
-  min-height: 100vh;
+  min-height: 80vh;
   margin: auto;
-  padding-bottom: 8rem;
+  padding-bottom: 4%;
   position: relative;
 }
 
@@ -185,28 +185,6 @@
 .recipe-steps.hide {
   display: none;
   margin-bottom: 4%;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 4.0rem;
-}
-
-.pagination a,
-.pagination span {
-  margin: 0 1.2rem;
-  font-weight: bold;
-  font-size: 1.8rem;
-  filter: brightness(0.8);
-  color: var(--primary-color);
-}
-
-.pagination a:hover{
-  transition: 350ms;
-  font-weight: bold;
-  filter: brightness(0.4);
-  border-bottom: 1px solid var(--primary-color);
 }
 
 .img-container .highlight > img {

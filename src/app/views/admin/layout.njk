@@ -4,29 +4,26 @@
         <div>
           <a href="/" class="logo"><img src="/assets/logo-admin.png" alt="logo"/></a>
 
-          <a name="drop" href="/admin/users/profile" class="nav-item">Minha conta</a>
+          <a name="drop" href="/admin/profile" class="nav-item">Minha conta</a>
 
           <div class="drop-menu">
             <a name="drop" href="/admin/recipes" class="nav-item">Receitas</a>
-            <div class="drop-content">
-              <a href="/admin/recipes/create" class="nav-item">Criar</a>
-            </div>
           </div>
 
           <div class="drop-menu">
             <a name="drop" href="/admin/chefs" class="nav-item">Chefs</a>
-            <div class="drop-content">
-              <a href="/admin/chefs/create" class="nav-item">Criar</a>
-            </div>
           </div>
 
           <div class="drop-menu">
             <a name="drop" href="/admin/users" class="nav-item">Usuários</a>
-            <div class="drop-content">
-              <a href="/admin/users/create" class="nav-item">Criar</a>
-            </div>
           </div>
         </div>
+
+        {% if session.userId and session.isAdmin %}
+          <div class="is-admin">
+            <p>ADMIN</p>
+          </div>
+        {% endif %}
 
         <form id="logout" method="POST" action="/admin/users/logout">
           <a
@@ -38,4 +35,3 @@
       </nav>
     </header>
   </div>
-
