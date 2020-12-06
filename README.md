@@ -1,8 +1,8 @@
 <h1 align='center'>
-  <img src=".github/chef.png" width="200">
+  <img src="github/chef.png" width="200">
 </h1>
 
-<p align='center'><img src="./github/logo.png"></p>
+<p align='center'><img src="github/logo.png"></p>
   
 <p align='center'>:plate_with_cutlery: Learn how to make the best recipes created by professionals from around the world!<p>
 
@@ -20,13 +20,13 @@
 Foodfy is a complete web application for recipe management, developed on the [Rocketseat's](https://rocketseat.com.br) LaunchBase Bootcamp.
 
 <p align="center">
-  <img src=".github/home.gif" alt="home">
+  <img src="github/home.gif" alt="home">
 </p>
 <br>
 
 <h3 align="center">Admin</h3>
 <p align="center">
-  <img src=".github/admin.gif" alt="página admin">
+  <img src="github/admin.gif" alt="página admin">
 </p>
 
 ## :computer: Technologies
@@ -88,7 +88,7 @@ Select an email from the users table, access the login screen and enter using it
 
 Note: administrator users have the "ADMIN" badge in their header:
 <p align="center">
-  <img src=".github/admin-header.png" alt="admin page">
+  <img src="github/admin-header.png" alt="admin page">
 </p>
 
 <br>
