@@ -26,7 +26,7 @@ Foodfy is a complete web application for recipe management, developed on the [Ro
 
 <h3 align="center">Admin</h3>
 <p align="center">
-  <img src="github/admin.gif" alt="página admin">
+  <img src="github/admin.gif" alt="admin page">
 </p>
 
 ## :computer: Technologies

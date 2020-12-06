@@ -17,7 +17,7 @@ let totalFiles = totalChefs + totalRecipes
 
 async function createUsers() {
   const users = []
-  const password = await hash('1', 8)
+  const password = await hash('1111', 8)
 
   const trueOrFalse = [true, false]
 
