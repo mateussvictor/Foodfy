@@ -50,7 +50,7 @@ Some of the technologies and tools used in the project:
 
 ## :runner: Getting started
 
-**You need to install o [Node](https://nodejs.org/en/) and [Postgres](https://www.postgresql.org/).**
+**You need to install [Node](https://nodejs.org/en/) and [Postgres](https://www.postgresql.org/).**
 
 Follow the steps bellow:
 
